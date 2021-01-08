@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="player"></div>
+        <button id="start">start</button>
+        <button id="loop">loop</button>
+        <button id="left"><<</button>
+        <button id="right">>></button>
+    </body>
+    <script src="./loop.js"></script>
+    <script src="./youtube.js"></script>
+    <script>
+        const script = document.createElement("script");
+        script.src = "https://youtube.com/iframe_api";
+        const firstScript = document.getElementsByTagName("script")[0];
+        firstScript.parentNode.insertBefore(script, firstScript);
+    </script>
+</html>
