@@ -7,6 +7,8 @@ new (function () {
     this.init = () => {
         this.player = YL("player", {
             videoId: "M7lc1UVf-VE",
+            height: "520",
+            width: "100%",
             events: {
                 onReady: this.onReadyVideo,
                 onStateChange: this.onStateChangeVideo,
@@ -18,13 +20,13 @@ new (function () {
         this.play = new Play({
             player: this.player,
             status: this.status,
-            $target: document.getElementById("play")
+            $target: document.getElementById("play"),
         });
 
         this.loop = new Loop({
             player: this.player,
             status: this.status,
-            $target: document.getElementById("loop")
+            $target: document.getElementById("loop"),
         });
     };
 
