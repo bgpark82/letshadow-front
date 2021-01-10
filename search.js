@@ -3,17 +3,19 @@
         this.list;
         this.$list = document.getElementById("list");
 
-        this.$search = document.getElementById("search")
-        this.$searchBtn = document.getElementById("searchBtn")
+        this.$search = document.getElementById("search");
+        this.$searchBtn = document.getElementById("searchBtn");
 
         this.fetchList({ keyword: "영국남자" });
 
-        this.$search.addEventListener('change',(e) => {
-            this.videoId = e.target.value
-        })
-        this.$searchBtn.addEventListener('click',() => {
-            location.href = `/index.html?videoId=${this.videoId}`
-        })
+        this.$search.addEventListener("change", (e) => {
+            this.videoId = e.target.value;
+        });
+        this.$searchBtn.addEventListener("click", () => {
+            const videoId = this.videoId ? this.videoId : "eMygau1Yy_0";
+            console.log(videoId);
+            location.href = `/search.html?videoId=${videoId}`;
+        });
     };
 
     this.fetchList = async ({

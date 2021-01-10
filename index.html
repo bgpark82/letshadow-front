@@ -1,41 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="css/index.css"></link>
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
         <title>Document</title>
     </head>
     <body>
-        <div id="container">
-            <section id="video">
-                <div id="player"></div>
-            </section>
-            <section id="controller">
-                <div id="loop">
-                    <div class="start">00:00</div>
-                    <div class="btn">
-                        <i class="fas fa-chevron-left"></i>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                    <div class="end">00:00</div>
-                </div>
-                <div id="play">
-                    <i class="fas fa-angle-double-left left"></i>
-                    <div class="btn">
-                        <i class="fas fa-play play"></i>
-                    </div>
-                    <i class="fas fa-angle-double-right right"></i>
-                </div>
-                <div>
-                    <input id="search" type="text">
-                    <button id="search-btn">search</button>
-                </div>
-            </section>
-        </div>
+        <input type="text" id="search" />
+        <button id="searchBtn">search</button>
+        <ul id="list" style="cursor: pointer"></ul>
     </body>
-    <script src="./index.js" type="module"></script>
+    <script src="./search.js"></script>
 </html>
