@@ -14,6 +14,9 @@ import loadAPI from "./init.js";
         window.onYouTubeIframeAPIReady = () => {
             this.player = new YT.Player(id, options);
             this.State = YT.PlayState;
+
+            const iframe = document.querySelector("iframe");
+            iframe.setAttribute("allowfullscreen", "0");
         };
     }
 
@@ -67,7 +70,6 @@ import loadAPI from "./init.js";
         const sec = Math.floor(timestamp % 60);
         const minStr = min < 10 ? "0" + min : min;
         const secStr = sec < 10 ? "0" + sec : sec;
-        console.log("timestamp: ", timestamp, min, sec);
         return minStr + ":" + secStr;
     };
 

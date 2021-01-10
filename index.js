@@ -7,7 +7,6 @@ new (function () {
     this.init = () => {
         this.player = YL("player", {
             videoId: "M7lc1UVf-VE",
-            height: "520",
             width: "100%",
             events: {
                 onReady: this.onReadyVideo,
