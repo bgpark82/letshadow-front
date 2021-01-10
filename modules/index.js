@@ -14,9 +14,6 @@ import loadAPI from "./init.js";
         window.onYouTubeIframeAPIReady = () => {
             this.player = new YT.Player(id, options);
             this.State = YT.PlayState;
-
-            const iframe = document.querySelector("iframe");
-            iframe.setAttribute("allowfullscreen", "0");
         };
     }
 

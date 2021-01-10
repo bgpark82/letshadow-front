@@ -9,7 +9,7 @@ new (function () {
             videoId: "M7lc1UVf-VE",
             width: "100%",
             playerVars: {
-                enablejsapi: 1,
+                playsinline: 1,
             },
             events: {
                 onReady: this.onReadyVideo,
