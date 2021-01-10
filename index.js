@@ -8,6 +8,9 @@ new (function () {
         this.player = YL("player", {
             videoId: "M7lc1UVf-VE",
             width: "100%",
+            playerVars: {
+                enablejsapi: 1,
+            },
             events: {
                 onReady: this.onReadyVideo,
                 onStateChange: this.onStateChangeVideo,
