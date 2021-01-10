@@ -5,8 +5,12 @@ import Status from "./libs/status.js";
 
 new (function () {
     this.init = () => {
+        this.videoId = location.search.substring(
+            location.search.lastIndexOf("=") + 1
+        );
+
         this.player = YL("player", {
-            videoId: "M7lc1UVf-VE",
+            videoId: this.videoId,
             width: "100%",
             playerVars: {
                 playsinline: 1,
