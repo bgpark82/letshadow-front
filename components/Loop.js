@@ -10,6 +10,8 @@ function Loop({ player, status, $target }) {
         this.$startTime = $target.querySelectorAll(".start")[0];
         this.$endTime = $target.querySelectorAll(".end")[0];
         this.$loopBtn = $target.querySelectorAll(".btn")[0];
+        this.$startArrow = this.$loopBtn.children[0];
+        this.$endArrow = this.$loopBtn.children[1];
 
         this.bindEvents();
     };
@@ -38,7 +40,6 @@ function Loop({ player, status, $target }) {
         }
         /* off */
         if (status.isLoopEnd()) {
-            console.log(status.loopEnd());
             status.loopOff();
             return;
         }
@@ -64,7 +65,21 @@ function Loop({ player, status, $target }) {
 
     this.render = () => {
         this.$startTime.innerHTML = getTimestamp(this._start);
+        if (status.isLoopStart()) {
+            this.$startTime.style.color = "#845ef7";
+            this.$startArrow.style.color = "#845ef7";
+        }
         this.$endTime.innerHTML = getTimestamp(this._end);
+        if (status.isLoopEnd()) {
+            this.$endTime.style.color = "#845ef7";
+            this.$endArrow.style.color = "#845ef7";
+        }
+        if (status.isLoopOff()) {
+            this.$startTime.style.color = "#ddd";
+            this.$startArrow.style.color = "#ddd";
+            this.$endTime.style.color = "#ddd";
+            this.$endArrow.style.color = "#ddd";
+        }
     };
 
     this.init();

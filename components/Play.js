@@ -2,7 +2,7 @@ import { EVENT, TIME } from "../libs/constant.js";
 
 function Play({ player, status, $target }) {
     this.init = () => {
-        this.$startBtn = $target.querySelectorAll(".start")[0];
+        this.$playBtn = $target.querySelectorAll(".play")[0];
         this.$leftBtn = $target.querySelectorAll(".left")[0];
         this.$rightBtn = $target.querySelectorAll(".right")[0];
 
@@ -10,7 +10,7 @@ function Play({ player, status, $target }) {
     };
 
     this.bindEvents = () => {
-        this.$startBtn.addEventListener(EVENT.CLICK, this.onClickStartPause);
+        this.$playBtn.addEventListener(EVENT.CLICK, this.onClickStartPause);
         this.$leftBtn.addEventListener(EVENT.CLICK, this.onClickRollBack);
         this.$rightBtn.addEventListener(EVENT.CLICK, this.onClickRollForward);
     };
@@ -47,10 +47,12 @@ function Play({ player, status, $target }) {
 
     this.render = () => {
         if (status.isPlaying()) {
-            this.$startBtn.innerHTML = "pause";
+            this.$playBtn.classList.remove("fa-play");
+            this.$playBtn.classList.add("fa-pause");
         }
         if (status.isPaused()) {
-            this.$startBtn.innerHTML = "start";
+            this.$playBtn.classList.remove("fa-pause");
+            this.$playBtn.classList.add("fa-play");
         }
     };
 
