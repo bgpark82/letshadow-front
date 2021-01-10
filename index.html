@@ -4,20 +4,26 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <link rel="stylesheet" href="css/index.css"></link>
     </head>
     <body>
-        <div id="player"></div>
-        <button id="start">start</button>
-        <button id="loop">loop</button>
-        <button id="left"><<</button>
-        <button id="right">>></button>
+        <div id="container">
+            <section>
+                <div id="player"></div>
+            </section>
+            <section id="controller">
+                <div id="loop">
+                    <span class="start">00:00</span>
+                    <button class="btn">loop</button>
+                    <span class="end">00:00</span>
+                </div>
+                <div id="play">
+                    <button class="start">start</button>
+                    <button class="left"><<</button>
+                    <button class="right">>></button>
+                </div>
+            </section>
+        </div>
     </body>
-    <script src="./loop.js"></script>
-    <script src="./youtube.js"></script>
-    <script>
-        const script = document.createElement("script");
-        script.src = "https://youtube.com/iframe_api";
-        const firstScript = document.getElementsByTagName("script")[0];
-        firstScript.parentNode.insertBefore(script, firstScript);
-    </script>
+    <script src="./index.js" type="module"></script>
 </html>
