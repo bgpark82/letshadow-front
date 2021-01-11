@@ -33,7 +33,7 @@ body {
     display: block;
     cursor: pointer;
     /* border: none; */
-    border: 5px solid #ddd;
+    border: 2px solid #ddd;
     border-radius: 100%;
     width: 4.5rem;
     height: 4.5rem;
@@ -64,7 +64,7 @@ body {
 #loop .start,
 #loop .end {
     font-size: 2.5rem;
-    font-weight: 600;
+    font-weight: 300;
 }
 
 /** play */
