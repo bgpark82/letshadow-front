@@ -6,9 +6,114 @@
         <title>Document</title>
     </head>
     <body>
-        <input type="text" id="search" />
-        <button id="searchBtn">search</button>
+        <button onclick="fetchToken()">로그인</button>
         <ul id="list" style="cursor: pointer"></ul>
     </body>
     <script src="./search.js"></script>
+    <script>
+        console.log(location);
+        const token = location.href.split("&")[1].split("=")[1];
+        console.log(token);
+
+        fetch(
+            "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=" +
+                token
+        )
+            .then((res) => {
+                return res.json();
+            })
+            .then((result) => {
+                fetch(
+                    "https://www.googleapis.com/youtube/v3/videos?part=snippet,player,contentDetails,status,topicDetails,id&myRating=like&access_token=" +
+                        token,
+                    {
+                        method: "get",
+                        headers: {
+                            Authorization: "Bearer " + token,
+                        },
+                    }
+                )
+                    .then((res1) => {
+                        return res1.json();
+                    })
+                    .then((result1) => {
+                        console.log(result1);
+                        const $ul = document.getElementById("list");
+                        result1.items.reduce((ul, video) => {
+                            const $li = document.createElement("li");
+                            $li.addEventListener("click", () => {
+                                location.href = `/search.html?videoId=${video.id}`;
+                            });
+                            $li.innerHTML = `
+                                <div>${video.id}</div>
+                                <div>${video.snippet.localized.title}</div>
+                                <img src="${video.snippet.thumbnails.default.url}" />
+                            `;
+                            console.log(ul, $ul);
+                            ul.appendChild($li);
+                            return ul;
+                        }, $ul);
+                    });
+
+                // fetch(
+                //     "https://www.googleapis.com/youtube/v3/playlists?part=snippet,player,contentDetails,id&mine=true&access_token=" +
+                //         token,
+                //     {
+                //         method: "get",
+                //         headers: {
+                //             Authorization: "Bearer " + token,
+                //         },
+                //     }
+                // )
+                //     .then((res1) => {
+                //         return res1.json();
+                //     })
+                //     .then((result1) => {
+                //         console.log(result1);
+                //         const $ul = document.getElementById("list");
+                //         result1.items.reduce((ul, video) => {
+                //             const $li = document.createElement("li");
+                //             $li.addEventListener("click", () => {
+                //                 location.href = `/search.html?videoId=${video.id}`;
+                //             });
+                //             $li.innerHTML = `
+                //                 <div>${video.id}</div>
+                //                 <div>${video.snippet.title}</div>
+                //                 <img src="${video.snippet.thumbnails.default.url}" />
+                //             `;
+                //             console.log(ul, $ul);
+                //             ul.appendChild($li);
+                //             return ul;
+                //         }, $ul);
+                //     });
+            });
+
+        function fetchToken() {
+            var oauth2Endpoint = "https://accounts.google.com/o/oauth2/v2/auth";
+
+            var form = document.createElement("form");
+            form.setAttribute("method", "GET"); // Send as a GET request.
+            form.setAttribute("action", oauth2Endpoint);
+
+            var params = {
+                client_id:
+                    "758204078687-dhoc57phmqfj5epv6vvi327kguumm9p8.apps.googleusercontent.com",
+                redirect_uri: "https://letshadow.netlify.app",
+                response_type: "token",
+                scope: "https://www.googleapis.com/auth/youtube",
+                include_granted_scopes: "true",
+                state: "pass-through value",
+            };
+
+            for (var p in params) {
+                var input = document.createElement("input");
+                input.setAttribute("type", "hidden");
+                input.setAttribute("name", p);
+                input.setAttribute("value", params[p]);
+                form.appendChild(input);
+            }
+            document.body.appendChild(form);
+            form.submit();
+        }
+    </script>
 </html>

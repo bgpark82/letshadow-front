@@ -8,7 +8,6 @@ new (function () {
         this.videoId = location.search.substring(
             location.search.lastIndexOf("=") + 1
         );
-
         console.log(this.videoId);
 
         this.player = YL("player", {
