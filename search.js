@@ -39,13 +39,13 @@ new (function () {
         log("server_access_token", this.server_access_token);
         log("server_refresh_token", this.server_refresh_token);
 
-        if (location.search && !this.google_access_token) {
+        if (location.search && this.google_access_token == "undefined") {
             await this.getGoogleToken();
         }
         // if (this.google_token) this.$loginBtn.style.display = "none"
-        if (!this.server_access_token || !this.server_refresh_token) {
-            await this.getServerToken();
-        }
+        // if (!this.server_access_token || !this.server_refresh_token) {
+        //     await this.getServerToken();
+        // }
         if (this.google_access_token) {
             await this.getVideos();
             await this.render();
@@ -137,7 +137,7 @@ new (function () {
                 c = c.substring(1);
             }
             if (c.indexOf(name) == 0) {
-                return c.substring(name.length + 1, c.length - 1);
+                return c.substring(name.length, c.length);
             }
         }
         return "";
