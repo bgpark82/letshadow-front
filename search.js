@@ -39,7 +39,11 @@ new (function () {
         log("server_access_token", this.server_access_token);
         log("server_refresh_token", this.server_refresh_token);
 
-        if (location.search && this.google_access_token == "undefined") {
+        if (
+            location.search &&
+            (this.google_access_token == "undefined" ||
+                this.google_access_token == "")
+        ) {
             await this.getGoogleToken();
         }
         // if (this.google_token) this.$loginBtn.style.display = "none"
