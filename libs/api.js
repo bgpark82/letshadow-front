@@ -1,5 +1,4 @@
 const REDIRECT_URI = "https://letshadow.netlify.app";
-// const REDIRECT_URI = "localhost:5500";
 
 export async function fetchVideos(token) {
     const videos = await fetch(
