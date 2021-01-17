@@ -1,3 +1,6 @@
+const REDIRECT_URI = "https://letshadow.netlify.app";
+// const REDIRECT_URI = "localhost:5500";
+
 export async function fetchVideos(token) {
     const videos = await fetch(
         `https://www.googleapis.com/youtube/v3/videos?part=snippet,player,contentDetails,status,topicDetails,id&myRating=like&access_token=${token}`,
@@ -51,7 +54,7 @@ export async function fetchGoogleToken(code) {
     );
     params.append("client_secret", "vRDY1-vBeRsXstnZlrYqrgGF");
     params.append("grant_type", "authorization_code");
-    params.append("redirect_uri", "http://localhost:5500");
+    params.append("redirect_uri", REDIRECT_URI);
 
     const response = await fetch(`https://oauth2.googleapis.com/token`, {
         method: "POST",
@@ -76,7 +79,7 @@ export function fetchGoogleCode() {
     var params = {
         client_id:
             "758204078687-dhoc57phmqfj5epv6vvi327kguumm9p8.apps.googleusercontent.com",
-        redirect_uri: "http://localhost:5500",
+        redirect_uri: REDIRECT_URI,
         response_type: "code",
         scope: "profile openid email https://www.googleapis.com/auth/youtube",
         include_granted_scopes: "true",
