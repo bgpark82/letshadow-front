@@ -1,17 +1,15 @@
-const REDIRECT_URI = "https://letshadow.netlify.app";
+// const REDIRECT_URI = "https://letshadow.netlify.app";
 // const REDIRECT_URI = "http://localhost:5500";
+const REDIRECT_URI = "http://localhost:8080/oauth/callback";
 
 export async function fetchVideos(token) {
-    const videos = await fetch(
-        `https://www.googleapis.com/youtube/v3/videos?part=snippet,player,contentDetails,status,topicDetails,id&myRating=like&access_token=${token}`,
-        {
-            method: "get",
-            headers: {
-                Authorization: "Bearer " + token,
-            },
-        }
-    );
-    return await videos.json();
+    const response = await fetch("http://localhost:8080/videos", {
+        method: "get",
+        headers: {
+            Authorization: "Bearer " + token,
+        },
+    });
+    return await response.json();
 }
 
 export async function fetchGoogleEmail(token) {
@@ -25,12 +23,12 @@ export async function fetchGoogleEmail(token) {
     }
 }
 
-export async function fetchServerToken() {
+export async function fetchServerToken(username, password) {
     let params = new URLSearchParams();
     params.append("grant_type", "password");
     params.append("scope", "read write");
-    params.append("username", "pop8682@gmail.com");
-    params.append("password", "123");
+    params.append("username", username);
+    params.append("password", password);
 
     const accessTokenRes = await fetch(`http://localhost:8080/oauth/token`, {
         method: "POST",
@@ -81,7 +79,7 @@ export function fetchGoogleCode() {
             "758204078687-dhoc57phmqfj5epv6vvi327kguumm9p8.apps.googleusercontent.com",
         redirect_uri: REDIRECT_URI,
         response_type: "code",
-        scope: "profile openid email https://www.googleapis.com/auth/youtube",
+        scope: "openid profile email https://www.googleapis.com/auth/youtube",
         include_granted_scopes: "true",
         state: "pass-through value",
         access_type: "offline",
