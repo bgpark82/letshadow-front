@@ -1,4 +1,4 @@
-import { fetchGoogleCode } from "./libs/api.js";
+import { fetchGoogleCode } from "../libs/api.js";
 
 new (function () {
     this.init = () => {

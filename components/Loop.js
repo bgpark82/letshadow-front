@@ -41,22 +41,19 @@ function Loop({ player, status, $target }) {
         /* off */
         if (status.isLoopEnd()) {
             status.loopOff();
+            this.render();
             return;
         }
     };
 
     this.start = () => {
-        if (!this.getDuration()) return;
+        if (!this._duration) return;
         if (status.isLoopOff()) return;
         setTimeout(this.restart, this._duration * 1000);
     };
 
     this.restart = () => {
         player.seekTo(this._start);
-    };
-
-    this.getDuration = () => {
-        return this._duration;
     };
 
     this.setDuration = () => {

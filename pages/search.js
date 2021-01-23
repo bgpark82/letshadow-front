@@ -1,6 +1,6 @@
 // import Cookies from "js-cookie";
-import { fetchNewServerToken, fetchVideos } from "./libs/api.js";
-import { getCookie, setCookie } from "./libs/utils.js";
+import { fetchNewServerToken, fetchVideos } from "../libs/api.js";
+import { getCookie, setCookie } from "../libs/utils.js";
 
 new (function () {
     this.init = () => {

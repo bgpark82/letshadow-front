@@ -1,10 +1,10 @@
-import YL from "./modules/youtube-loop.js";
-import Loop from "./components/Loop.js";
-import Play from "./components/Play.js";
-import Status from "./libs/status.js";
-import { fetchTimedText, fetchTranslate } from "./libs/api.js";
-import Transcript from "./modules/transcript.js";
-import loadAPI from "./modules/init.js";
+import YL from "../modules/youtube-loop.js";
+import Loop from "../components/Loop.js";
+import Play from "../components/Play.js";
+import Status from "../libs/status.js";
+import { fetchTimedText, fetchTranslate } from "../libs/api.js";
+import Transcript from "../modules/transcript.js";
+import loadAPI from "../modules/init.js";
 
 new (function () {
     this.init = () => {
