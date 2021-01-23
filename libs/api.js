@@ -1,6 +1,10 @@
 // const REDIRECT_URI = "https://letshadow.netlify.app";
 // const REDIRECT_URI = "http://localhost:5500";
 const REDIRECT_URI = "http://localhost:8080/oauth/callback";
+const CLIENT_ID =
+    "758204078687-dhoc57phmqfj5epv6vvi327kguumm9p8.apps.googleusercontent.com";
+const CLIENT_SECRET = "vRDY1-vBeRsXstnZlrYqrgGF";
+const LANGUAGE = "es";
 
 export async function fetchVideos(token) {
     const response = await fetch("http://localhost:8080/videos", {
@@ -9,7 +13,45 @@ export async function fetchVideos(token) {
             Authorization: "Bearer " + token,
         },
     });
+    if (response.status == 400 || response.status == 403) {
+        alert("UnAuthorized 로그인이 필요합니다");
+        location.href = "/login.html";
+    }
     return await response.json();
+}
+
+export async function fetchTimedText(videoId) {
+    const response = await fetch(
+        `https://video.google.com/timedtext?lang=${LANGUAGE}&v=${videoId}`
+    );
+    return await response.text();
+}
+
+export async function fetchTranslate(word) {
+    const response = await fetch(
+        `https://translation.googleapis.com/language/translate/v2?q=${word}&target=ko&source=${LANGUAGE}&key=AIzaSyDUGzvwaAESxzaSO2Lr2iXseACgzjdV3mM`,
+        {
+            method: "POST",
+        }
+    );
+    const json = await response.json();
+    return json.data.translations;
+}
+
+export async function fetchNewServerToken(refreshToken) {
+    let params = new URLSearchParams();
+    params.append("grant_type", "refresh_token");
+    params.append("refresh_token", refreshToken);
+
+    const accessTokenRes = await fetch(`http://localhost:8080/oauth/token`, {
+        method: "POST",
+        headers: {
+            Authorization: `Basic ${window.btoa("test:test")}`,
+        },
+        credentials: "same-origin",
+        body: params,
+    });
+    return await accessTokenRes.json();
 }
 
 export async function fetchGoogleEmail(token) {
@@ -46,11 +88,8 @@ export async function fetchServerToken(username, password) {
 export async function fetchGoogleToken(code) {
     let params = new URLSearchParams();
     params.append("code", code);
-    params.append(
-        "client_id",
-        "758204078687-dhoc57phmqfj5epv6vvi327kguumm9p8.apps.googleusercontent.com"
-    );
-    params.append("client_secret", "vRDY1-vBeRsXstnZlrYqrgGF");
+    params.append("client_id", CLIENT_ID);
+    params.append("client_secret", CLIENT_SECRET);
     params.append("grant_type", "authorization_code");
     params.append("redirect_uri", REDIRECT_URI);
 
@@ -75,8 +114,7 @@ export function fetchGoogleCode() {
 
     // Parameters to pass to OAuth 2.0 endpoint.
     var params = {
-        client_id:
-            "758204078687-dhoc57phmqfj5epv6vvi327kguumm9p8.apps.googleusercontent.com",
+        client_id: CLIENT_ID,
         redirect_uri: REDIRECT_URI,
         response_type: "code",
         scope: "openid profile email https://www.googleapis.com/auth/youtube",

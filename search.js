@@ -1,6 +1,6 @@
 // import Cookies from "js-cookie";
-import { fetchVideos } from "./libs/api.js";
-import { getCookie, log, setCookie } from "./libs/utils.js";
+import { fetchNewServerToken, fetchVideos } from "./libs/api.js";
+import { getCookie, setCookie } from "./libs/utils.js";
 
 new (function () {
     this.init = () => {
@@ -8,13 +8,13 @@ new (function () {
         this.access_token;
         this.refresh_token;
 
-        this.$list = document.getElementById("list");
         this.$ul = document.getElementById("list");
 
         this.fetchTokenAndVideo();
     };
 
     this.fetchTokenAndVideo = async () => {
+        // 서버에서 token을 가져올 경우
         if (location.search) {
             const param = new URLSearchParams(location.search);
             const accessToken = param.get("access_token");
@@ -25,17 +25,35 @@ new (function () {
             location.href = "/";
         }
 
+        // 최초 메인 페이지 접속 시
         this.access_token = getCookie("access_token");
-        log("access_token", this.access_token);
+        this.refresh_token = getCookie("refresh_token");
 
-        if (!this.access_token) location.href = "/login.html";
+        if (!this.access_token && this.refresh_token) {
+            const {
+                access_token,
+                refresh_token,
+                expires_in,
+            } = await fetchNewServerToken(this.refresh_token);
+            this.access_token = access_token;
+            this.refresh_token = refresh_token;
+            setCookie("access_token", access_token, expires_in);
+            setCookie("refresh_token", refresh_token, 60 * 60 * 30);
+        }
+
+        if (!this.access_token && !this.refresh_token) {
+            alert("로그인이 필요합니다 (서버 토큰 재발급)");
+            location.href = "/login.html";
+        }
 
         this.videos = await fetchVideos(this.access_token);
-        log("video", this.videos);
+        
         await this.render();
     };
 
     this.render = () => {
+        if (!this.videos) throw new Error("비디오 리스트가 없습니다");
+
         this.videos.items.reduce((ul, video) => {
             const $li = document.createElement("li");
             $li.addEventListener("click", () => {

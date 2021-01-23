@@ -1,0 +1,28 @@
+{
+  "name": "front",
+  "version": "1.0.0",
+  "description": "letshadow front",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bgpark82/letshadow-front.git"
+  },
+  "keywords": [
+    "letshadow"
+  ],
+  "author": "bgpark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bgpark82/letshadow-front/issues"
+  },
+  "homepage": "https://github.com/bgpark82/letshadow-front#readme",
+  "devDependencies": {
+    "@babel/core": "7.12.10",
+    "@babel/preset-env": "7.12.11",
+    "babel-jest": "26.6.3",
+    "jest": "26.6.3"
+  }
+}

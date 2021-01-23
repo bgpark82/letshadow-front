@@ -1,8 +1,4 @@
-import loadAPI from "./init.js";
-
 (function (window) {
-    loadAPI();
-
     function YL(id, options) {
         if (!(this instanceof YL)) {
             return new YL(id, options);

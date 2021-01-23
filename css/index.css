@@ -8,6 +8,7 @@ body {
 }
 
 #controller {
+    width: 100%;
     margin-top: 1rem;
 }
 
@@ -26,6 +27,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 1rem 0 0 0;
 }
 
 #loop .btn {
@@ -88,4 +90,33 @@ body {
     padding: 1rem;
     font-size: 2rem;
     color: #555;
+}
+
+/** subtitle */
+#subtitle {
+    color: #111;
+    padding: 1rem;
+    border: 1px solid #aaa;
+    width: 100%;
+    text-align: center;
+}
+
+#subtitle span {
+    margin-right: 5px;
+}
+
+#subtitle span:hover {
+    cursor: pointer;
+    background: #ffec99;
+}
+
+#subtitle span .popup {
+    background: #f8f0fc;
+    position: absolute;
+    width: fit-content;
+    bottom: -14px;
+    left: 50%;
+    color: #333;
+    font-size: 12px;
+    margin-left: -25%;
 }
