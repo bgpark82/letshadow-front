@@ -40,23 +40,31 @@ describe("transcript test", () => {
 
     test("should get index 0 when timestamp is less than start time", () => {
         transcript.timestamp = 3;
-        
-        transcript.setCurrentIndex();
+
+        transcript.setCaptionIndex();
         expect(transcript.index).toBe(0);
     });
 
     test("should calculate timeout when timestamp is earlier than start", () => {
         transcript.timestamp = 3;
         transcript.index = 1;
-        
-        transcript.calculateTimeout();
+
+        transcript.calculateTimeoutInit();
         expect(transcript.timeout).toBe(10.094 - 3);
     });
 
     test("should calculate timeout when timestamp is after start", () => {
         transcript.timestamp = 12;
         transcript.index = 1;
-        
+
+        transcript.calculateTimeoutInit();
+        expect(transcript.timeout).toBe(7.559 + 10.094 - 12);
+    });
+
+    test("should calculate timeout when timestamp is after start", () => {
+        transcript.timestamp = 12;
+        transcript.index = 1;
+
         transcript.calculateTimeout();
         expect(transcript.timeout).toBe(7.559 + 10.094 - 12);
     });
@@ -64,24 +72,26 @@ describe("transcript test", () => {
     test("should set current timestamp", () => {
         player.getCurrentTime = jest.fn().mockReturnValue(3);
         transcript = new Transcript({ player, captions });
-    
-        transcript.setCurrentTimestamp();
+
+        transcript.setTimestamp();
         expect(transcript.timestamp).toBe(3);
     });
 
     test("should set current timestamp", () => {
         player.getCurrentTime = jest.fn().mockReturnValue(3);
         transcript = new Transcript({ player, captions });
-    
-        transcript.setCurrentTimestamp();
+
+        transcript.setTimestamp();
         expect(transcript.timestamp).toBe(3);
     });
 
     test("should get current index", () => {
         player.getCurrentTime = jest.fn().mockReturnValue(3);
         transcript = new Transcript({ player, captions });
-    
-        transcript.setCurrentTimestamp();
+
+        transcript.setTimestamp();
         expect(transcript.timestamp).toBe(3);
     });
+
+    test("should set caption index", () => {});
 });
