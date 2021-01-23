@@ -95,11 +95,13 @@ new (function () {
 
     this.onStateChangeVideo = ({ data }) => {
         if (this.player.isPlaying(data)) {
+            console.log("playing");
             this.status.play();
             this.loop.start();
             this.transcript.play();
         }
         if (this.player.isPaused(data)) {
+            console.log("paused");
             this.status.pause();
             this.transcript.pause();
         }

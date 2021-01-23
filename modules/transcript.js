@@ -6,17 +6,15 @@ class Transcript {
         this.captions = captions;
         console.log("caption", this.captions);
 
-        this.currentIndex = 0;
-        this.nextIndex = 0;
-
-        // 동영상에서 체크된 시간
+        // 자막 리스트 index
+        this.index = 0;
+        // 동영상의 timestamp
         this.timestamp = 0;
-        // 종료 시간
+        // timestamp 시간 부터 현재 자막 종료까지의 시간
         this.timeout = -1;
         // setTimeout
         this.timeoutKey;
-        this.offsetKey;
-
+        // 외부에서온 text 렌더링 함수
         this.render = render;
     }
 
@@ -31,9 +29,8 @@ class Transcript {
     }
 
     showCaption() {
-        this.nextIndex = this.findCaptionIndex();
-        this.currentIndex = this.nextIndex;
-        const { start } = this.getCaption(this.nextIndex);
+        this.index = this.findCaptionIndex();
+        const { start } = this.getCaption(this.index);
 
         if (this.timestamp < start) {
             this.timeout = start - this.timestamp;
@@ -42,9 +39,8 @@ class Transcript {
             this.timeout = this.calculateTimeout();
         }
         console.log(
-            "current currentIndex, nextIndex, timestamp, timeout",
-            this.currentIndex,
-            this.nextIndex,
+            "index, timestamp, timeout",
+            this.index,
             this.timestamp,
             this.timeout
         );
@@ -53,59 +49,54 @@ class Transcript {
     }
 
     showNextCaption() {
-        this.currentIndex = this.nextIndex;
-        this.nextIndex++;
-
+        this.index++;
         this.timestamp = this.player.getCurrentTime();
         this.timeout = this.calculateTimeout();
 
-        this.renderCaption();
-
-        console.log(
-            "next currentIndex, nextIndex, start, timestamp, timeout",
-            this.currentIndex,
-            this.nextIndex,
-            this.timestamp,
-            this.timeout
-        );
-        if (this.nextIndex <= this.captions.length) {
+        if (this.index <= this.captions.length) {
             this.setTimeout();
         }
     }
 
-    renderCaption() {
-        const { text, start } = this.getCurrentCaption();
-        const offset = start > this.timestamp ? start - this.timestamp : 0;
-
-        this.offsetKey = setTimeout(() => {
-            this.render(text);
-        }, offset * 1000);
-    }
-
     setTimeout() {
         if (this.timeout < 0) return;
+        console.log(
+            "index, start, timestamp, timeout",
+            this.index,
+            this.timestamp,
+            this.timeout
+        );
+
+        this.renderCaption();
         clearTimeout(this.timeoutKey);
         this.timeoutKey = setTimeout(() => {
             this.showNextCaption();
         }, this.timeout * 1000);
     }
 
+    renderCaption() {
+        const { text, start } = this.getCurrentCaption();
+        const offset = start > this.timestamp ? start - this.timestamp : 0;
+        // this.offsetKey = setTimeout(() => {
+        this.render(text);
+        // }, offset * 1000);
+    }
+
     calculateTimeout() {
-        const { start, duration } = this.getCaption(this.currentIndex);
+        const { start, duration } = this.getCaption(this.index);
         return start + duration - this.timestamp;
     }
 
     findCaptionIndex() {
-        console.log("caption", this.captions);
         const size = this.captions.length;
         let index = 0;
         for (; index < size; index++) {
             const { start, duration } = this.getCaption(index);
+            const end = start + duration;
 
             // 현재 시간이 시작시간 보다 작을 때
             if (this.timestamp < start) break;
             // 현재 시간이 시작시간과 종료시간 사이에 있을 때
-            const end = start + duration;
             if (this.timestamp >= start && this.timestamp < end) {
                 break;
             }
@@ -118,7 +109,7 @@ class Transcript {
     }
 
     getCurrentCaption() {
-        return this.captions[this.currentIndex];
+        return this.captions[this.index];
     }
 
     checkNumber(timestamp) {
