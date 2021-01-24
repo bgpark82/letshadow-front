@@ -1,13 +1,14 @@
 // const REDIRECT_URI = "https://letshadow.netlify.app";
 // const REDIRECT_URI = "http://localhost:5500";
-const REDIRECT_URI = "http://localhost:8080/oauth/callback";
+const BASE_SERVER_URI = "https://letshadow.me";
+const REDIRECT_URI = BASE_SERVER_URI + "/oauth/callback";
 const CLIENT_ID =
     "758204078687-dhoc57phmqfj5epv6vvi327kguumm9p8.apps.googleusercontent.com";
 const CLIENT_SECRET = "vRDY1-vBeRsXstnZlrYqrgGF";
 const LANGUAGE = "es";
 
 export async function fetchVideos(token) {
-    const response = await fetch("http://localhost:8080/videos", {
+    const response = await fetch(BASE_SERVER_URI + "/videos", {
         method: "get",
         headers: {
             Authorization: "Bearer " + token,
@@ -43,7 +44,7 @@ export async function fetchNewServerToken(refreshToken) {
     params.append("grant_type", "refresh_token");
     params.append("refresh_token", refreshToken);
 
-    const accessTokenRes = await fetch(`http://localhost:8080/oauth/token`, {
+    const accessTokenRes = await fetch(BASE_SERVER_URI + "/oauth/token", {
         method: "POST",
         headers: {
             Authorization: `Basic ${window.btoa("test:test")}`,
@@ -72,7 +73,7 @@ export async function fetchServerToken(username, password) {
     params.append("username", username);
     params.append("password", password);
 
-    const accessTokenRes = await fetch(`http://localhost:8080/oauth/token`, {
+    const accessTokenRes = await fetch(BASE_SERVER_URI + "/oauth/token", {
         method: "POST",
         headers: {
             Authorization: `Basic ${window.btoa("test:test")}`,
