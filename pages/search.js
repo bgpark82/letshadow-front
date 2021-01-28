@@ -57,14 +57,16 @@ new (function () {
         if (!this.videos) throw new Error("비디오 리스트가 없습니다");
 
         this.videos.items.reduce((ul, video) => {
+            console.log(video);
             const $li = document.createElement("li");
             $li.addEventListener("click", () => {
                 location.href = `/search.html?videoId=${video.id}`;
             });
             $li.innerHTML = `
-                <div>${video.id}</div>
-                <div>${video.snippet.localized.title}</div>
-                <img src="${video.snippet.thumbnails.default.url}" />
+                <img src="${video.snippet.thumbnails.high.url}" />
+                <div>${video.snippet.channelTitle}</div>
+                <div>${video.snippet.title}</div>
+                <div>${video.snippet.publishedAt}</div>
             `;
             ul.appendChild($li);
             return ul;
