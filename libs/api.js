@@ -1,8 +1,5 @@
-// const REDIRECT_URI = "https://letshadow.netlify.app";
-// const REDIRECT_URI = "http://localhost:5500";
-
-const BASE_SERVER_URI = "http://localhost:8080";
-// const BASE_SERVER_URI = "https://letshadow.me";
+// const BASE_SERVER_URI = "http://localhost:8080";
+const BASE_SERVER_URI = "https://letshadow.me";
 const REDIRECT_URI = BASE_SERVER_URI + "/oauth/callback";
 const CLIENT_ID =
     "758204078687-dhoc57phmqfj5epv6vvi327kguumm9p8.apps.googleusercontent.com";
