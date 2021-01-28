@@ -30,6 +30,7 @@ new (function () {
         this.refresh_token = getCookie("refresh_token");
 
         if (!this.access_token && this.refresh_token) {
+            console.log("no access_token, exist refresh token - refresh token");
             const {
                 access_token,
                 refresh_token,
@@ -42,12 +43,13 @@ new (function () {
         }
 
         if (!this.access_token && !this.refresh_token) {
+            console.log("no access_token, refresh token - login");
             alert("로그인이 필요합니다 (서버 토큰 재발급)");
             location.href = "/login.html";
         }
 
         this.videos = await fetchVideos(this.access_token);
-        
+
         await this.render();
     };
 

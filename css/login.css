@@ -1,0 +1,53 @@
+.login-btn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-btn img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.login-btn div {
+    display: flex;
+    align-items: center;
+    border: 1px solid #333;
+    background: white;
+    border-radius: 5px;
+    padding: 0.5rem 1rem 0.4rem 1rem;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn div:hover {
+    background: #333;
+    color: white;
+}
+
+.login-btn div button {
+    color: #333;
+    border: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.login-btn div:hover button {
+    color: white;
+}
+
+.login-btn button:focus {
+    outline: 0;
+}
+
+body {
+    width: 100%;
+}
