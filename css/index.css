@@ -134,9 +134,3 @@ body {
         height: 20rem;
     }
 }
-
-@media all and (min-width: 400px) {
-    #video {
-        height: 28rem;
-    }
-}
