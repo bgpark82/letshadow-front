@@ -1,5 +1,9 @@
 // import Cookies from "js-cookie";
-import { fetchNewServerToken, fetchVideos } from "../libs/api.js";
+import {
+    fetchNewServerToken,
+    fetchUserInfo,
+    fetchVideos,
+} from "../libs/api.js";
 import { getCookie, setCookie } from "../libs/utils.js";
 
 new (function () {
@@ -9,6 +13,7 @@ new (function () {
         this.refresh_token;
 
         this.$ul = document.getElementById("list");
+        this.$thumbnail = document.getElementById("thumbnail");
 
         this.fetchTokenAndVideo();
     };
@@ -49,28 +54,41 @@ new (function () {
         }
 
         this.videos = await fetchVideos(this.access_token);
+        this.user = await fetchUserInfo(this.access_token);
+        console.log(this.user);
 
         await this.render();
     };
 
     this.render = () => {
         if (!this.videos) throw new Error("비디오 리스트가 없습니다");
-
+        const $img = document.createElement("img");
+        $img.src = this.user.picture;
+        this.$thumbnail.appendChild($img);
         this.videos.items.reduce((ul, video) => {
-            console.log(video);
             const $li = document.createElement("li");
             $li.addEventListener("click", () => {
                 location.href = `/search.html?videoId=${video.id}`;
             });
             $li.innerHTML = `
-                <img src="${video.snippet.thumbnails.high.url}" />
-                <div>${video.snippet.channelTitle}</div>
-                <div>${video.snippet.title}</div>
-                <div>${video.snippet.publishedAt}</div>
+                <a href='#' class='thumbnail' data-duration='12:32'>
+                <img src="${video.thumbnails.medium.url}" />
+                </a>
+                <div class='video-detail'>
+                    <a class='title'>${video.title}</a>
+                    <a class='channel-name'>${video.channelTitle}</a>
+                    <div class='published-at'>${this.parseDate(
+                        video.publishedAt
+                    )}</div>
+                </div>
             `;
             ul.appendChild($li);
             return ul;
         }, this.$ul);
+    };
+
+    this.parseDate = (date) => {
+        return date.substr(0, 10);
     };
 
     this.init();

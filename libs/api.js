@@ -1,5 +1,5 @@
-// const BASE_SERVER_URI = "http://localhost:8080";
-const BASE_SERVER_URI = "https://letshadow.me";
+const BASE_SERVER_URI = "http://localhost:8080";
+// const BASE_SERVER_URI = "https://letshadow.me";
 const REDIRECT_URI = BASE_SERVER_URI + "/oauth/callback";
 const CLIENT_ID =
     "758204078687-dhoc57phmqfj5epv6vvi327kguumm9p8.apps.googleusercontent.com";
@@ -17,6 +17,16 @@ export async function fetchVideos(token) {
         alert("UnAuthorized 로그인이 필요합니다");
         location.href = "/login.html";
     }
+    return await response.json();
+}
+
+export async function fetchUserInfo(token) {
+    const response = await fetch(BASE_SERVER_URI + "/api/v1/userInfo", {
+        method: "get",
+        headers: {
+            Authorization: "Bearer " + token,
+        },
+    });
     return await response.json();
 }
 

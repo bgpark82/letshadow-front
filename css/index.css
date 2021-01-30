@@ -8,7 +8,8 @@ body {
 #video {
     background: #aaa;
     width: 100%;
-    height: 40rem;
+    height: 65vh;
+    /* max-height: 25rem; */
 }
 
 #controller {
@@ -26,7 +27,6 @@ body {
 }
 
 /** loop */
-
 #loop {
     display: flex;
     justify-content: center;
