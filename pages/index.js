@@ -18,7 +18,9 @@ new (function () {
         this.videoId = location.search.substring(
             location.search.lastIndexOf("=") + 1
         );
-        this.$subtitle = document.getElementById("subtitle");
+
+        this.$video = document.getElementById("video");
+        this.$caption = document.getElementById("caption");
         this.setTranscript();
 
         this.player = YL("player", {
@@ -69,27 +71,39 @@ new (function () {
     };
 
     this.renderCaption = (text) => {
-        this.$subtitle.innerHTML = "";
+        this.appendCaption(text);
+    };
 
-        text.split(" ").reduce(($subtitle, word) => {
-            const $span = document.createElement("span");
-            $span.style.position = "relative";
-            $span.innerHTML = word;
+    this.appendCaption = (text) => {
+        this.$caption.innerHTML = "";
 
-            $span.addEventListener("click", async (e) => {
-                const response = await fetchTranslate(word);
-                if (response.length > 1)
-                    throw new Error("두개 이상의 번역이 있습니다");
-                const korean = response[0].translatedText;
-                const $popup = document.createElement("span");
-                $popup.className = "popup";
-                $popup.innerHTML = korean;
-                e.target.appendChild($popup);
-            });
-            
-            $subtitle.appendChild($span);
-            return $subtitle;
-        }, this.$subtitle);
+        const $subtitle = text.split(" ").reduce(($caption, word) => {
+            const $word = document.createElement("span");
+            $word.innerHTML = word;
+            // this.onClickWord($word, word);
+            $caption.appendChild($word);
+            return $caption;
+        }, this.$caption);
+
+        this.$video.appendChild($subtitle);
+    };
+
+    this.onClickWord = ($span, word) => {
+        $span.addEventListener("click", async (e) => {
+            const response = await fetchTranslate(word);
+            if (response.length > 1)
+                throw new Error("두개 이상의 번역이 있습니다");
+            const korean = response[0].translatedText;
+            this.appendWord(korean);
+        });
+    };
+
+    this.appendWord = (word) => {
+        const $word = document.createElement("div");
+        $word.className = "word";
+        $word.innerHTML = word;
+
+        this.$caption.before($word);
     };
 
     this.onReadyVideo = () => {
