@@ -138,6 +138,7 @@ body {
     }
 
     #video #caption {
+        left: 10%;
         font-size: 0.9rem;
     }
 }
