@@ -49,7 +49,6 @@ new (function () {
 
         if (!this.access_token && !this.refresh_token) {
             console.log("no access_token, refresh token - login");
-            alert("로그인이 필요합니다 (서버 토큰 재발급)");
             location.href = "/login.html";
         }
 

@@ -75,6 +75,7 @@ new (function () {
             const $span = document.createElement("span");
             $span.style.position = "relative";
             $span.innerHTML = word;
+
             $span.addEventListener("click", async (e) => {
                 const response = await fetchTranslate(word);
                 if (response.length > 1)
@@ -85,6 +86,7 @@ new (function () {
                 $popup.innerHTML = korean;
                 e.target.appendChild($popup);
             });
+            
             $subtitle.appendChild($span);
             return $subtitle;
         }, this.$subtitle);

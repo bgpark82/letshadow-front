@@ -12,6 +12,10 @@ body {
     /* max-height: 25rem; */
 }
 
+#video::after {
+    
+}
+
 #controller {
     width: 100%;
     margin-top: 1rem;
