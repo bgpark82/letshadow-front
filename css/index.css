@@ -134,7 +134,7 @@ body {
 */
 @media all and (max-width: 500px) {
     #video {
-        height: 20rem;
+        height: 26rem;
     }
 
     #video #caption {
