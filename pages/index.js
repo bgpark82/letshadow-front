@@ -95,16 +95,16 @@ new (function () {
             if (response.length > 1)
                 throw new Error("두개 이상의 번역이 있습니다");
             const korean = response[0].translatedText;
-            this.appendWord(korean);
+            this.appendWord(word, korean);
         });
     };
 
-    this.appendWord = (word) => {
+    this.appendWord = (origin, korean) => {
         this.$word.innerHTML = "";
 
         const $word = document.createElement("div");
         $word.className = "word";
-        $word.innerHTML = word;
+        $word.innerHTML = `${origin} : ${korean}`;
 
         this.$word.appendChild($word);
     };
