@@ -21,6 +21,7 @@ new (function () {
 
         this.$video = document.getElementById("video");
         this.$caption = document.getElementById("caption");
+        this.$word = document.getElementById("word");
         this.setTranscript();
 
         this.player = YL("player", {
@@ -80,7 +81,7 @@ new (function () {
         const $subtitle = text.split(" ").reduce(($caption, word) => {
             const $word = document.createElement("span");
             $word.innerHTML = word;
-            // this.onClickWord($word, word);
+            this.onClickWord($word, word);
             $caption.appendChild($word);
             return $caption;
         }, this.$caption);
@@ -99,11 +100,13 @@ new (function () {
     };
 
     this.appendWord = (word) => {
+        this.$word.innerHTML = "";
+
         const $word = document.createElement("div");
         $word.className = "word";
         $word.innerHTML = word;
 
-        this.$caption.before($word);
+        this.$word.appendChild($word);
     };
 
     this.onReadyVideo = () => {
