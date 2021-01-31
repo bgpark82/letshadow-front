@@ -98,16 +98,13 @@ body {
 }
 
 /** subtitle */
-#video #caption-container {
-    position: relative;
-}
 
 #video #caption {
     position: absolute;
     bottom: 2.8rem;
     color: white;
     background: #111;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     left: 20%;
     width: min-content;
 }
@@ -138,5 +135,9 @@ body {
 @media all and (max-width: 500px) {
     #video {
         height: 20rem;
+    }
+
+    #video #caption {
+        font-size: 3vh;
     }
 }
