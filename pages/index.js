@@ -54,6 +54,11 @@ new (function () {
 
     this.setTranscript = async () => {
         const response = await fetchTimedText(this.videoId);
+        if (!response) {
+            console.log("자막이 존재하지 않습니다");
+            return;
+        }
+
         const parser = new DOMParser();
         const captionXML = await parser.parseFromString(response, "text/xml");
         const textXML = captionXML.querySelectorAll("text");
@@ -118,12 +123,13 @@ new (function () {
             console.log("playing");
             this.status.play();
             this.loop.start();
-            this.transcript.play();
+            this.transcript?.play();
         }
         if (this.player.isPaused(data)) {
             console.log("paused");
             this.status.pause();
-            this.transcript.pause();
+            // 자막이 없으면 this.transcript 존재x
+            this.transcript?.pause();
         }
 
         this.play.render();

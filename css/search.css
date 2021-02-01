@@ -74,7 +74,7 @@ ul li .thumbnail {
     display: flex;
 }
 
-ul li .thumbnail::before {
+/* ul li .thumbnail::before {
     content: attr(data-duration);
     position: absolute;
     background-color: rgba(0, 0, 0, 0.95);
@@ -85,7 +85,7 @@ ul li .thumbnail::before {
     border-radius: 0.3em;
     font-size: 1rem;
     color: white;
-}
+} */
 
 ul li img {
     width: 100%;

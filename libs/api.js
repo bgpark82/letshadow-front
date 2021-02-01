@@ -4,7 +4,7 @@ const REDIRECT_URI = BASE_SERVER_URI + "/oauth/callback";
 const CLIENT_ID =
     "758204078687-dhoc57phmqfj5epv6vvi327kguumm9p8.apps.googleusercontent.com";
 const CLIENT_SECRET = "vRDY1-vBeRsXstnZlrYqrgGF";
-const LANGUAGE = "es";
+const LANGUAGE = "en";
 
 export async function fetchVideos(token) {
     const response = await fetch(BASE_SERVER_URI + "/videos", {
@@ -39,7 +39,7 @@ export async function fetchTimedText(videoId) {
 
 export async function fetchTranslate(word) {
     const response = await fetch(
-        `https://translation.googleapis.com/language/translate/v2?q=${word}&target=ko&source=${LANGUAGE}&key=AIzaSyDUGzvwaAESxzaSO2Lr2iXseACgzjdV3mM`,
+        `https://translation.googleapis.com/language/translate/v2?q=${word}&target=ko&key=AIzaSyDUGzvwaAESxzaSO2Lr2iXseACgzjdV3mM`,
         {
             method: "POST",
         }
