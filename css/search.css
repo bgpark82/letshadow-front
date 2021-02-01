@@ -15,19 +15,19 @@ header {
     justify-content: space-between;
     height: 2rem;
     border-bottom: 1px solid #ddd;
-    padding: 0.5rem 2rem;
+    padding: 1rem 2rem;
 }
 
 header a {
     text-decoration: none;
     color: #333;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 header #thumbnail {
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 100%;
     background-color: #ddd;
 }
@@ -36,6 +36,19 @@ header #thumbnail img {
     width: inherit;
     height: inherit;
     border-radius: inherit;
+}
+
+.body {
+    background: #f8f9fa;
+}
+
+h3 {
+    margin: 0 0 0 1rem;
+    padding: 2rem 0 0.25rem 0;
+    font-size: 1rem;
+    color: #333;
+    border-bottom: 3px solid #555;
+    width: fit-content;
 }
 
 ul {
@@ -70,7 +83,7 @@ ul li .thumbnail::before {
     bottom: 5px;
     padding: 0.1em 0.3em;
     border-radius: 0.3em;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: white;
 }
 
@@ -89,6 +102,10 @@ ul li .video-detail .title {
     font-size: 0.9rem;
     font-weight: 700;
     color: #222;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
 ul li .video-detail .channel-name {

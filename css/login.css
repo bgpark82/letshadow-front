@@ -1,3 +1,20 @@
+body {
+    font-family: Roboto, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+h3 {
+    margin: 0;
+    color: #333;
+    font-size: 2rem;
+}
+
+.title {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+}
+
 .login-btn {
     position: absolute;
     top: 0;
@@ -6,6 +23,7 @@
     right: 0;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -16,7 +34,7 @@
     height: 2rem;
 }
 
-.login-btn div {
+.login-btn .btn {
     display: flex;
     align-items: center;
     border: 1px solid #333;
@@ -27,12 +45,12 @@
     box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
 }
 
-.login-btn div:hover {
+.login-btn .btn:hover {
     background: #333;
     color: white;
 }
 
-.login-btn div button {
+.login-btn .btn button {
     color: #333;
     border: none;
     background: none;
@@ -40,7 +58,7 @@
     font-weight: 500;
     cursor: pointer;
 }
-.login-btn div:hover button {
+.login-btn .btn:hover button {
     color: white;
 }
 
