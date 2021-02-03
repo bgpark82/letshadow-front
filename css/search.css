@@ -25,21 +25,42 @@ header a {
     font-size: 1.25rem;
 }
 
-header #thumbnail {
+header .thumbnail {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 100%;
     background-color: #ddd;
 }
 
-header #thumbnail img {
+header .thumbnail img {
     width: inherit;
     height: inherit;
     border-radius: inherit;
 }
 
+header button {
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    border-radius: 5rem;
+    background: white;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #333;
+    cursor: pointer;
+}
+
+header button:hover {
+    background: #f8f9fa;
+}
+
+header button:focus {
+    outline: 0;
+}
+
 .body {
     background: #f8f9fa;
+    min-height: 100vh;
+    position: relative;
 }
 
 h3 {
@@ -58,6 +79,20 @@ ul {
     list-style-type: none;
     margin-top: 2rem;
     padding: 0;
+}
+
+ul .empty {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
 }
 
 ul li {

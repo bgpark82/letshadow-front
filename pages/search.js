@@ -13,13 +13,14 @@ new (function () {
         this.refresh_token;
 
         this.$ul = document.getElementById("list");
-        this.$thumbnail = document.getElementById("thumbnail");
+        this.$right = document.querySelector(".right");
 
         this.fetchTokenAndVideo();
     };
 
     this.fetchTokenAndVideo = async () => {
         // 서버에서 token을 가져올 경우
+
         if (location.search) {
             const param = new URLSearchParams(location.search);
             const accessToken = param.get("access_token");
@@ -48,29 +49,44 @@ new (function () {
         }
 
         if (!this.access_token && !this.refresh_token) {
-            console.log("no access_token, refresh token - login");
-            location.href = "/login.html";
+            const $li = document.createElement("div");
+            $li.className = "empty";
+            $li.innerHTML = "좋아요한 영상이 없습니다 😥";
+            this.$ul.appendChild($li);
+
+            const $loginBtn = document.createElement("button");
+            $loginBtn.innerHTML = "로그인";
+            $loginBtn.addEventListener("click", () => {
+                location.href = "/login.html";
+            });
+            this.$right.appendChild($loginBtn);
         }
 
-        this.videos = await fetchVideos(this.access_token);
-        this.user = await fetchUserInfo(this.access_token);
-        console.log(this.user);
+        if (this.refresh_token) {
+            this.videos = await fetchVideos(this.access_token);
+            this.user = await fetchUserInfo(this.access_token);
+            console.log(this.user);
 
-        await this.render();
+            await this.render();
+        }
     };
 
     this.render = () => {
         if (!this.videos) throw new Error("비디오 리스트가 없습니다");
+        const $thumbnail = document.createElement("div");
+        $thumbnail.className = "thumbnail";
         const $img = document.createElement("img");
         $img.src = this.user.picture;
-        this.$thumbnail.appendChild($img);
+        $thumbnail.appendChild($img);
+
+        this.$right.appendChild($thumbnail);
         this.videos.items.reduce((ul, video) => {
             const $li = document.createElement("li");
             $li.addEventListener("click", () => {
                 location.href = `/search.html?videoId=${video.id}`;
             });
             $li.innerHTML = `
-                <a href='#' class='thumbnail' data-duration='12:32'>
+                <a href='#' class='right' data-duration='12:32'>
                 <img src="${video.thumbnails.medium.url}" />
                 </a>
                 <div class='video-detail'>
