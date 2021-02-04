@@ -1,0 +1,629 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>letshadow 표준약관</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="def505cd-e7c4-4bc0-a3cc-5629e9e952a6" class="page sans"><header><h1 class="page-title">letshadow 표준약관</h1></header><div class="page-body"><p id="0cbe1932-0125-423b-b80c-bfe208904b84" class="">
+</p><p id="7b8ae93c-022a-4805-8406-d8d0b8696d15" class=""><strong>제1장 총칙</strong></p><ul id="271d9fa1-017c-483f-b20c-d9eb20c058c2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제1조(목적)</strong> </span></li></ul><p id="d3cf897d-21c1-4a2c-8968-d0a9e13d3daf" class="">이 약관은 회사가 온라인으로 제공하는 디지털콘텐츠(이하 &quot;콘텐츠&quot;라고 한다) 및 제반서비스의 이용과 관련하여 회사와 이용자와의 권리, 의무 및 책임사항 등을 규정함을 목적으로 합니다.</p><ul id="cc6cf842-8717-4d5d-982b-92690f0e83b3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제2조(정의)</strong> </span></li></ul><p id="5a9ab5a3-1e46-4134-825d-c2f2655c8a3e" class="">이 약관에서 사용하는 용어의 정의는 다음과 같습니다.</p><p id="82a67265-0b24-49af-9133-2bb5db684a3e" class="">1. &quot;회사&quot;라 함은 &quot;콘텐츠&quot; 산업과 관련된 경제활동을 영위하는 자로서 콘텐츠 및 제반서비스를 제공하는 자를 말합니다.</p><p id="e79b99c5-e03a-4eb7-9d2c-249c5325be35" class="">2. &quot;이용자&quot;라 함은 &quot;회사&quot;의 사이트에 접속하여 이 약관에 따라 &quot;회사&quot;가 제공하는 &quot;콘텐츠&quot; 및 제반서비스를 이용하는 회원 및 비회원을 말합니다.</p><p id="33da64b6-d150-4ff5-8761-11c30f0d13d2" class="">3. &quot;회원&quot;이라 함은 &quot;회사&quot;와 이용계약을 체결하고 &quot;이용자&quot; 아이디(ID)를 부여받은 &quot;이용자&quot;로서 &quot;회사&quot;의 정보를 지속적으로 제공받으며 &quot;회사&quot;가 제공하는 서비스를 지속적으로 이용할 수 있는 자를 말합니다.</p><p id="1bd6cae3-9f90-4d00-a64f-b40626e5a23f" class="">4. &quot;비회원&quot;이라 함은 &quot;회원&quot;이 아니면서 &quot;회사&quot;가 제공하는 서비스를 이용하는 자를 말합니다.</p><p id="3a3eac27-7990-43ee-a2fb-239161e392e9" class="">5. &quot;콘텐츠&quot;라 함은 정보통신망이용촉진 및 정보보호 등에 관한 법률 제2조 제1항 제1호의 규정에 의한 정보통신망에서 사용되는 부호·문자·음성·음향·이미지 또는 영상 등으로 표현된 자료 또는 정보로서, 그 보존 및 이용에 있어서 효용을 높일 수 있도록 전자적 형태로 제작 또는 처리된 것을 말합니다.</p><p id="26dc0458-1766-4e25-b279-d388777350d0" class="">6. &quot;아이디(ID)&quot;라 함은 &quot;회원&quot;의 식별과 서비스이용을 위하여 &quot;회원&quot;이 정하고 &quot;회사&quot;가 승인하는 문자 또는 숫자의 조합을 말합니다.</p><p id="cecc04a5-8a71-43aa-92c4-00491ae1a8d4" class="">7. &quot;비밀번호(PASSWORD)&quot;라 함은 &quot;회원&quot;이 부여받은 &quot;아이디&quot;와 일치되는 &quot;회원&quot;임을 확인하고 비밀보호를 위해 &quot;회원&quot; 자신이 정한 문자 또는 숫자의 조합을 말합니다.</p><ul id="769ac2ff-6ec5-452e-a2b9-db9f59268d0f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제3조(신원정보 등의 제공)</strong> </span></li></ul><p id="9614e77a-0167-4edd-8406-4dc2b9ba63ed" class="">&quot;회사&quot;는 이 약관의 내용, 상호, 대표자 성명, 영업소 소재지 주소(소비자의 불만을 처리할 수 있는 곳의 주소를 포함), 전화번호, 모사전송번호, 전자우편주소, 사업자등록번호, 통신판매업 신고번호 및 개인정보관리책임자 등을 이용자가 쉽게 알 수 있도록 온라인 서비스초기화면에 게시합니다. 다만, 약관은 이용자가 연결화면을 통하여 볼 수 있도록 할 수 있습니다.</p><ul id="34f605bb-215f-4433-a28a-bb15ae235aaf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제4조(약관의 게시 등)</strong> </span></li></ul><p id="28582403-43e7-49e6-8f02-c0ab110b9712" class="">① &quot;회사&quot;는 이 약관을 &quot;회원&quot;이 그 전부를 인쇄할 수 있고 거래과정에서 해당 약관의 내용을 확인할 수 있도록 기술적 조치를 취합니다.</p><p id="ade4684e-637f-4040-95e9-7e5ce1625360" class="">② &quot;회사&quot;는 &quot;이용자&quot;가 &quot;회사&quot;와 이 약관의 내용에 관하여 질의 및 응답할 수 있도록 기술적 장치를 설치합니다.</p><p id="c4d549f4-3ba7-4c9c-adee-d5db6d021558" class="">③ &quot;회사&quot;는 &quot;이용자&quot;가 약관에 동의하기에 앞서 약관에 정하여져 있는 내용 중 청약철회, 환불조건 등과 같은 중요한 내용을 이용자가 쉽게 이해할 수 있도록 별도의 연결화면 또는 팝업화면 등을 제공하여 &quot;이용자&quot;의 확인을 구합니다.</p><ul id="997e5e7e-0d00-448c-a2f9-2039550ee11d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제5조(약관의 개정 등)</strong> </span></li></ul><p id="beda2fe8-6194-4da3-a4a3-8438acde3159" class="">① &quot;회사&quot;는 온라인 디지털콘텐츠산업 발전법, 전자상거래 등에서의 소비자보호에 관한 법률, 약관의 규제에 관한 법률 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.</p><p id="0ea59fc7-4b5f-44ab-8aa1-8bb9d2b19166" class="">② &quot;회사&quot;가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 서비스초기화면에 그 적용일자 7일 이전부터 적용일 후 상당한 기간동안 공지하고, 기존회원에게는 개정약관을 전자우편주소로 발송합니다.</p><p id="31b45508-3fda-436a-b84a-437e33c85310" class="">③ &quot;회사&quot;가 약관을 개정할 경우에는 개정약관 공지 후 개정약관의 적용에 대한 &quot;이용자&quot;의 동의 여부를 확인합니다. &quot;이용자&quot;가 개정약관의 적용에 동의하지 않는 경우 &quot;회사&quot; 또는 &quot;이용자&quot;는 콘텐츠 이용계약을 해지할 수 있습니다. 이때, &quot;회사&quot;는 계약해지로 인하여 &quot;이용자&quot;가 입은 손해를 배상합니다.</p><ul id="da57be64-7b3c-4e32-8bc9-4adf6955ffea" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제6조(약관의 해석)</strong> </span></li></ul><p id="1e3d1ab3-98f3-4212-9acc-ff5d492468e4" class="">이 약관에서 정하지 아니한 사항과 이 약관의 해석에 관하여는 온라인 디지털콘텐츠산업 발전법, 전자상거래 등에서의 소비자보호에 관한 법률, 약관의 규제에 관한 법률, 문화체육관광부장관이 정하는 디지털콘텐츠이용자보호지침, 기타 관계법령 또는 상관례에 따릅니다.</p><p id="77afe98e-92cd-4fa8-8974-85745fae6d65" class=""><strong>제2장 회원가입</strong></p><ul id="7b19d5b9-4714-4890-b8a7-418cbcfa86b8" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제7조(회원가입)</strong> </span></li></ul><p id="908cb853-bd23-41b6-a9c0-e74e7afc4465" class="">① 회원가입은 &quot;이용자&quot;가 약관의 내용에 대하여 동의를 하고 회원가입신청을 한 후 &quot;회사&quot;가 이러한 신청에 대하여 승낙함으로써 체결됩니다.</p><p id="af4aaf3c-d2a5-4990-b67a-a129bb509e1b" class="">② &quot;회사&quot;는 상기 &quot;이용자&quot;의 신청에 대하여 회원가입을 승낙함을 원칙으로 합니다. 다만, &quot;회사&quot;는 다음 각 호에 해당하는 신청에 대하여는 승낙을 하지 않을 수 있습니다.</p><p id="dfd28d77-2500-4256-b3ec-45b13d7f6e89" class="">1. 가입신청자가 이 약관에 의하여 이전에 회원자격을 상실한 적이 있는 경우</p><p id="ebc2f8cb-3d16-48f0-ba88-2972ac3c808e" class="">2. 실명이 아니거나 타인의 명의를 이용한 경우</p><p id="4f40b581-c8da-4fa8-94da-41287b77fcb9" class="">3. 허위의 정보를 기재하거나, 회사가 제시하는 내용을 기재하지 않은 경우</p><p id="e151a118-1fb1-48bd-9ca3-e54352b90043" class="">4. 이용자의 귀책사유로 인하여 승인이 불가능하거나 기타 규정한 제반 사항을 위반하며 신청하는 경우</p><p id="929566df-f676-4456-80ff-4316464f4811" class="">③ &quot;회사&quot;는 서비스 관련 설비의 여유가 없거나, 기술상 또는 업무상 문제가 있는 경우에는 승낙을 유보할 수 있습니다.</p><p id="40172907-7c2b-42f3-bdd5-9974185fa18d" class="">④ 제3항과 제4항에 따라 회원가입신청의 승낙을 하지 아니하거나 유보한 경우, &quot;회사&quot;는 이를 신청자에게 알려야 합니다. &quot;회사&quot;의 귀책사유 없이 신청자에게 통지할 수 없는 경우에는 예외로 합니다.</p><p id="191d84ba-f707-46c1-b070-f7be17ccc0eb" class="">⑤ 회원가입계약의 성립 시기는 &quot;회사&quot;의 승낙이 &quot;이용자&quot;에게 도달한 시점으로 합니다.</p><ul id="0c90a764-54d1-4b4c-8e62-b2afdc3d36de" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제8조(미성년자의 회원가입에 관한 특칙)</strong> </span></li></ul><p id="4b2b1619-a9d2-4655-a616-41c923603de0" class="">① 만 14세 미만의 &quot;이용자&quot;는 개인정보의 수집 및 이용목적에 대하여 충분히 숙지하고 부모 등 법정대리인의 동의를 얻은 후에 회원가입을 신청하고 본인의 개인정보를 제공하여야 합니다.</p><p id="302bb640-dab0-47c8-8273-024b42cd9833" class="">② 회사는 부모 등 법정대리인의 동의에 대한 확인절차를 거치지 않은 14세 미만 이용자에 대하여는 가입을 취소 또는 불허합니다.</p><p id="a339c9bf-e4db-4e58-a999-6052789a0828" class="">③ 만 14세 미만 &quot;이용자&quot;의 부모 등 법정대리인은 아동에 대한 개인정보의 열람, 정정, 갱신을 요청하거나 회원가입에 대한 동의를 철회할 수 있으며, 이러한 경우에 &quot;회사&quot;는 지체 없이 필요한 조치를 취해야 합니다.</p><ul id="a6752d64-c22d-485a-b312-3407b3ea630c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제9조(회원정보의 변경)</strong> </span></li></ul><p id="892b6c39-5791-4339-9a67-a6b8e8acc474" class="">① &quot;회원&quot;은 개인정보관리화면을 통하여 언제든지 자신의 개인정보를 열람하고 수정할 수 있습니다.</p><p id="6fd418a1-c604-4a10-98ac-55c2422a401c" class="">② &quot;회원&quot;은 회원가입신청 시 기재한 사항이 변경되었을 경우 온라인으로 수정을 하거나 전자우편 기타 방법으로 &quot;회사&quot;에 대하여 그 변경사항을 알려야 합니다.</p><p id="d9df4345-2c43-44d6-aa9d-da6c79451fe2" class="">③ 제2항의 변경사항을 &quot;회사&quot;에 알리지 않아 발생한 불이익에 대하여 &quot;회사&quot;는 책임지지 않습니다.</p><ul id="bb8319e9-d28c-4da3-b336-1eafd277977c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제10조(&quot;회원&quot;의 &quot;아이디&quot; 및 &quot;비밀번호&quot;의 관리에 대한 의무)</strong> </span></li></ul><p id="eebb671e-da44-465d-9bb3-0001de7c283b" class="">① &quot;회원&quot;의 &quot;아이디&quot;와 &quot;비밀번호&quot;에 관한 관리책임은 &quot;회원&quot;에게 있으며, 이를 제3자가 이용하도록 하여서는 안 됩니다.</p><p id="f2184e4a-76c3-47c8-a35d-426f0cfcc743" class="">② &quot;회원&quot;은 &quot;아이디&quot; 및 &quot;비밀번호&quot;가 도용되거나 제3자에 의해 사용되고 있음을 인지한 경우에는 이를 즉시 &quot;회사&quot;에 통지하고 &quot;회사&quot;의 안내에 따라야 합니다.</p><p id="cd6ba16b-486b-4bec-b6da-1c2aee01e4df" class="">③ 제2항의 경우에 해당 &quot;회원&quot;이 &quot;회사&quot;에 그 사실을 통지하지 않거나, 통지한 경우에도 &quot;회사&quot;의 안내에 따르지 않아 발생한 불이익에 대하여 &quot;회사&quot;는 책임지지 않습니다.</p><ul id="d831f43f-632f-4c89-9549-909204adb358" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제11조(&quot;회원&quot;에 대한 통지)</strong> </span></li></ul><p id="414acd73-5b63-470a-a17b-9d77f1ea93a5" class="">① &quot;회사&quot;가 &quot;회원&quot;에 대한 통지를 하는 경우 &quot;회원&quot;이 지정한 전자우편주소로 할 수 있습니다.</p><p id="d9e78553-fdd6-411b-b91c-e8c5451807ac" class="">② &quot;회사&quot;는 &quot;회원&quot; 전체에 대한 통지의 경우 7일 이상 &quot;회사&quot;의 게시판에 게시함으로써 제1항의 통지에 갈음할 수 있습니다. 다만, &quot;회원&quot; 본인의 거래와 관련하여 중대한 영향을 미치는 사항에 대하여는 제1항의 통지를 합니다.</p><ul id="b1bd3d9d-4486-4950-9448-f2813c870842" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제12조(회원탈퇴 및 자격 상실 등)</strong> </span></li></ul><p id="2595f6d1-0bd2-4b3c-9784-a1e8a503d6c9" class="">① &quot;회원&quot;은 &quot;회사&quot;에 언제든지 탈퇴를 요청할 수 있으며 &quot;회사&quot;는 즉시 회원탈퇴를 처리합니다.</p><p id="4d8b5c13-b946-400e-a4de-41084bdfec26" class="">② &quot;회원&quot;이 다음 각호의 사유에 해당하는 경우, &quot;회사&quot;는 회원자격을 제한 및 정지시킬 수 있습니다.</p><p id="c304b18a-1d07-4ce7-9529-5d89f18cc28f" class="">1. 가입신청 시에 허위내용을 등록한 경우</p><p id="511dc06d-2cf0-40df-8e49-c564eef62325" class="">2. &quot;회사&quot;의 서비스이용대금, 기타 &quot;회사&quot;의 서비스이용에 관련하여 회원이 부담하는 채무를 기일에 이행하지 않는 경우</p><p id="65ddf7c4-c271-4085-b6c5-b930a227ef2f" class="">3. 다른 사람의 &quot;회사&quot;의 서비스이용을 방해하거나 그 정보를 도용하는 등 전자상거래 질서를 위협하는 경우</p><p id="48565add-3145-45aa-afbb-6d00938bbc72" class="">4. &quot;회사&quot;를 이용하여 법령 또는 이 약관이 금지하거나 공서양속에 반하는 행위를 하는 경우</p><p id="ca860e8a-efff-43a1-ac40-30c30a8e2bb6" class="">③ &quot;회사&quot;가 회원자격을 제한·정지시킨 후, 동일한 행위가 2회 이상 반복되거나 30일 이내에 그 사유가 시정되지 아니하는 경우 &quot;회사&quot;는 회원자격을 상실시킬 수 있습니다.</p><p id="84a79d8e-3f6a-4032-be5b-19e789c31f54" class="">④ &quot;회사&quot;가 회원자격을 상실시키는 경우에는 회원등록을 말소합니다. 이 경우 &quot;회원&quot;에게 이를 통지하고, 회원등록 말소 전에 최소한 30일 이상의 기간을 정하여 소명할 기회를 부여합니다.</p><p id="e2c2c1f5-b1d3-4971-8f18-da83080d3eef" class=""><strong>제3장 콘텐츠이용계약</strong></p><ul id="99f372f3-8779-4995-80c6-440c9faa423c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제13조(&quot;콘텐츠&quot;의 내용 등의 게시)</strong> </span></li></ul><p id="45fc8c12-c996-4ca1-a482-fbb78294e2a2" class="">① &quot;회사&quot;는 다음 사항을 해당 &quot;콘텐츠&quot;의 이용초기화면이나 그 포장에 &quot;이용자&quot;가 알기 쉽게 표시합니다.</p><p id="00e3dce6-f30d-4b70-9805-58da7ba96129" class="">1. &quot;콘텐츠&quot;의 명칭 또는 제호</p><p id="6cc6d1ce-39e6-430a-af6a-180667541f9c" class="">2. &quot;콘텐츠&quot; 제작자의 성명(법인인 경우에는 법인의 명칭), 주소, 이메일</p><p id="75366412-98cc-42b0-98a0-de905cabdf87" class="">3. &quot;콘텐츠&quot;의 내용, 이용방법, 이용료 기타 이용조건</p><p id="8c9105e1-8ade-4825-b929-46135b3dabc1" class="">② &quot;회사&quot;는 &quot;콘텐츠&quot;별 이용가능기기 및 이용에 필요한 최소한의 기술사양에 관한 정보를 계약체결과정에서 &quot;이용자&quot;에게 제공합니다.</p><ul id="3f00fd82-588e-47fe-9bbc-21d54e413ad5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제14조(이용계약의 성립 등)</strong> </span></li></ul><p id="8dd36871-d3f4-476a-8c55-b1f4e048895f" class="">① &quot;이용자&quot;는 &quot;회사&quot;가 제공하는 다음 또는 이와 유사한 절차에 의하여 이용신청을 합니다. &quot;회사&quot;는 계약 체결 전에 각 호의 사항에 관하여 &quot;이용자&quot;가 정확하게 이해하고 실수 또는 착오 없이 거래할 수 있도록 정보를 제공합니다.</p><p id="ebdb4a37-690f-409d-84a8-614aa72a0efe" class="">1. &quot;콘텐츠&quot; 목록의 열람 및 선택</p><p id="ffd19a69-e96d-4628-ac39-e50e17c72403" class="">2. 성명, 주소, 전화번호(또는 이동전화번호), 전자우편주소 등의 입력</p><p id="eba7c8d5-e969-42e7-8590-9aa682166fc0" class="">3. 약관내용, 청약철회가 불가능한 &quot;콘텐츠&quot;에 대해 &quot;회사&quot;가 취한 조치에 관련한 내용에 대한 확인</p><p id="9817b818-0076-42dc-826e-157c1b230932" class="">4. 이 약관에 동의하고 위 제3호의 사항을 확인하거나 거부하는 표시(예, 마우스 클릭)</p><p id="ed1317a7-861d-4c8a-be76-6eef00d586f0" class="">5. &quot;콘텐츠&quot;의 이용신청에 관한 확인 또는 &quot;회사&quot;의 확인에 대한 동의</p><p id="9b0ffb5d-f7ee-41d5-8e2b-b8e56b02f02c" class="">6. 결제방법의 선택</p><p id="cb596d33-16f5-4e70-9dd9-b15663ca6b12" class="">② &quot;회사&quot;는 &quot;이용자&quot;의 이용신청이 다음 각 호에 해당하는 경우에는 승낙하지 않거나 승낙을 유보할 수 있습니다.</p><p id="56bcf111-bcf5-4f3d-922c-9b97cedce7f2" class="">1. 실명이 아니거나 타인의 명의를 이용한 경우</p><p id="5526c03d-1853-43be-90c7-b3ab89c7de8b" class="">2. 허위의 정보를 기재하거나, &quot;회사&quot;가 제시하는 내용을 기재하지 않은 경우</p><p id="18e29cf1-9757-49d7-abed-75bf8323f04d" class="">3. 미성년자가 <a href="https://www.law.go.kr/LSW//admRulInfoP.do?admRulSeq=69795&amp;chrClsCd=010201#AJAX">청소년보호법</a>에 의해서 이용이 금지되는 &quot;콘텐츠&quot;를 이용하고자 하는 경우</p><p id="04aefe04-c686-4d4e-a2dc-0214b4938e1e" class="">4. 서비스 관련 설비의 여유가 없거나, 기술상 또는 업무상 문제가 있는 경우</p><p id="0be5879a-5b86-4c6d-a865-f28fd9ca7905" class="">③ &quot;회사&quot;의 승낙이<a href="https://www.law.go.kr/LSW//admRulInfoP.do?admRulSeq=69795&amp;chrClsCd=010201#AJAX"> 제16조</a> 제1항의 수신확인통지형태로 &quot;이용자&quot;에게 도달한 시점에 계약이 성립한 것으로 봅니다.</p><p id="4b52e876-6999-408f-90ed-ca7618e7019a" class="">④ &quot;회사&quot;의 승낙의 의사표시에는 &quot;이용자&quot;의 이용신청에 대한 확인 및 서비스제공 가능여부, 이용신청의 정정·취소 등에 관한 정보 등을 포함합니다.</p><ul id="11e3e434-3ea2-4555-a9b0-347f696aca80" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제15조(미성년자 이용계약에 관한 특칙)</strong> </span></li></ul><p id="28fcb792-2193-4d0d-95b4-925eacdcbff6" class="">&quot;회사&quot;는 만 20세 미만의 미성년이용자가 유료서비스를 이용하고자 하는 경우에 부모 등 법정 대리인의 동의를 얻거나, 계약체결 후 추인을 얻지 않으면 미성년자 본인 또는 법정대리인이 그 계약을 취소할 수 있다는 내용을 계약체결 전에 고지하는 조치를 취합니다.</p><ul id="b9bc7fdb-c89a-413a-aa0b-d38357556d4e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제16조(수신확인통지·이용신청 변경 및 취소)</strong> </span></li></ul><p id="3fb39a63-6cbc-49b4-a834-d79b57f2dc4b" class="">① &quot;회사&quot;는 &quot;이용자&quot;의 이용신청이 있는 경우 &quot;이용자&quot;에게 수신확인통지를 합니다.</p><p id="5effaaa7-a5f9-4822-88fd-31c3d45cb18d" class="">② 수신확인통지를 받은 &quot;이용자&quot;는 의사표시의 불일치 등이 있는 경우에는 수신확인통지를 받은 후 즉시 이용신청 변경 및 취소를 요청할 수 있고, &quot;회사&quot;는 서비스제공 전에 &quot;이용자&quot;의 요청이 있는 경우에는 지체 없이 그 요청에 따라 처리하여야 합니다. 다만, 이미 대금을 지불한 경우에는 청약철회 등에 관한<a href="https://www.law.go.kr/LSW//admRulInfoP.do?admRulSeq=69795&amp;chrClsCd=010201#AJAX"> 제27조</a>의 규정에 따릅니다.</p><ul id="f976a9c3-1536-44a6-99af-e0cf18091416" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제17조(&quot;회사&quot;의 의무)</strong> </span></li></ul><p id="ba279cb8-81a7-44ee-91d3-5e175cea8cd3" class="">① &quot;회사&quot;는 법령과 이 약관이 정하는 권리의 행사와 의무의 이행을 신의에 좇아 성실하게 하여야 합니다.</p><p id="e9845783-b507-4589-a2d9-c874b8abddc6" class="">② &quot;회사&quot;는 &quot;이용자&quot;가 안전하게 &quot;콘텐츠&quot;를 이용할 수 있도록 개인정보(신용정보 포함)보호를 위해 보안시스템을 갖추어야 하며 개인정보보호정책을 공시하고 준수합니다.</p><p id="559b69e9-95a4-4c17-9e11-a6f5eb1e8d55" class="">③ &quot;회사&quot;는 &quot;이용자&quot;가 콘텐츠이용 및 그 대금내역을 수시로 확인할 수 있도록 조치합니다.</p><p id="d437b252-2087-4c4b-8b48-3a39bbe1fc66" class="">④ &quot;회사&quot;는 콘텐츠이용과 관련하여 &quot;이용자&quot;로부터 제기된 의견이나 불만이 정당하다고 인정할 경우에는 이를 지체없이 처리합니다. 이용자가 제기한 의견이나 불만사항에 대해서는 게시판을 활용하거나 전자우편 등을 통하여 그 처리과정 및 결과를 전달합니다.</p><p id="a06c634c-41d5-4179-9ca7-0d437f325794" class="">⑤ &quot;회사&quot;는 이 약관에서 정한 의무 위반으로 인하여 &quot;이용자&quot;가 입은 손해를 배상합니다.</p><ul id="fc550283-2b6b-40b4-abc0-1c96cd52d533" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제18조(&quot;이용자&quot;의 의무)</strong> </span></li></ul><p id="acfbe9d4-8375-4346-87ea-f2d6f5f43807" class="">① &quot;이용자&quot;는 다음 행위를 하여서는 안 됩니다.</p><p id="70d6233f-c9e3-44d1-9411-be8dd7b1112b" class="">1. 신청 또는 변경 시 허위내용의 기재</p><p id="61382240-c80f-4832-936d-5f903c71d279" class="">2. 타인의 정보도용</p><p id="e3f96d38-9cb4-4299-a168-cedbb4c0be4d" class="">3. &quot;회사&quot;에 게시된 정보의 변경</p><p id="80da8036-9cc4-4657-940e-c94c3f97c0f1" class="">4. &quot;회사&quot;가 금지한 정보(컴퓨터 프로그램 등)의 송신 또는 게시</p><p id="e2dd1b4b-4d27-4dcd-9697-fbfeec2ec69f" class="">5. &quot;회사&quot;와 기타 제3자의 저작권 등 지적재산권에 대한 침해</p><p id="69766cd8-924f-4674-ad71-ac75e49ade6c" class="">6. &quot;회사&quot; 및 기타 제3자의 명예를 손상시키거나 업무를 방해하는 행위</p><p id="73b1f81e-63d8-4c83-aabd-c55eeef77204" class="">7. 외설 또는 폭력적인 말이나 글, 화상, 음향, 기타 공서양속에 반하는 정보를 &quot;회사&quot;의 사이트에 공개 또는 게시하는 행위</p><p id="26d27717-467c-4707-9360-157f82a0fbb5" class="">8. 기타 불법적이거나 부당한 행위</p><p id="7f2680e0-2fc2-4ce3-a373-1173c454cc88" class="">② &quot;이용자&quot;는 관계법령, 이 약관의 규정, 이용안내 및 &quot;콘텐츠&quot;와 관련하여 공지한 주의사항, &quot;회사&quot;가 통지하는 사항 등을 준수하여야 하며, 기타 &quot;회사&quot;의 업무에 방해되는 행위를 하여서는 안 됩니다.</p><ul id="679210a3-28c2-4977-8ab2-6ac935a0a27b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제19조(지급방법)</strong> </span></li></ul><p id="752a6fce-9d86-40f1-9157-b2ce3578528f" class="">&quot;콘텐츠&quot;의 이용에 대한 대금지급방법은 다음 각 호의 방법 중 가능한 방법으로 할 수 있습니다. 다만, &quot;회사&quot;는 &quot;이용자&quot;의 지급방법에 대하여 어떠한 명목의 수수료도 추가하여 징수하지 않습니다.</p><p id="78c987e8-7689-4720-98c6-64f9ceb96743" class="">1. 폰뱅킹, 인터넷뱅킹, 메일 뱅킹 등의 각종 계좌이체</p><p id="dfb92847-cb78-4ac2-85dd-095f144154d0" class="">2. 선불카드, 직불카드, 신용카드 등의 각종 카드결제</p><p id="83470979-5655-42e0-a9a6-eca0d94dda98" class="">3. 온라인무통장입금</p><p id="9d01b70f-217f-4bc3-ba6d-de04ff7f4683" class="">4. 전자화폐에 의한 결제</p><p id="e6f6a6fb-7416-482a-a894-02c1ee6980a1" class="">5. 마일리지 등 &quot;회사&quot;가 지급한 포인트에 의한 결제</p><p id="e1ce25d8-5cc2-463d-a5f4-58b84ec62170" class="">6. &quot;회사&quot;와 계약을 맺었거나 &quot;회사&quot;가 인정한 상품권에 의한 결제</p><p id="26ae91ce-03fc-471e-abeb-c45c9ff9ef99" class="">7. 전화 또는 휴대전화를 이용한 결제</p><p id="8884f2bd-5c0c-4dfd-99b7-2be5828bf76a" class="">8. 기타 전자적 지급방법에 의한 대금지급 등</p><ul id="5deb13fd-8c36-4765-a49f-b813cd8cd785" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제20조(콘텐츠서비스의 제공 및 중단)</strong> </span></li></ul><p id="788d71a0-1d56-4189-b042-55b7acdc6c58" class="">① 콘텐츠서비스는 연중무휴, 1일 24시간 제공함을 원칙으로 합니다.</p><p id="917e2286-6eb2-4396-b8e0-e403db9ba108" class="">② &quot;회사&quot;는 컴퓨터 등 정보통신설비의 보수점검, 교체 및 고장, 통신두절 또는 운영상 상당한 이유가 있는 경우 콘텐츠서비스의 제공을 일시적으로 중단할 수 있습니다. 이 경우 &quot;회사&quot;는<a href="https://www.law.go.kr/LSW//admRulInfoP.do?admRulSeq=69795&amp;chrClsCd=010201#AJAX"> 제11조</a>[&quot;회원&quot;에 대한 통지]에 정한 방법으로 &quot;이용자&quot;에게 통지합니다. 다만, &quot;회사&quot;가 사전에 통지할 수 없는 부득이한 사유가 있는 경우 사후에 통지할 수 있습니다.</p><p id="e98ce8ad-c163-4554-8f96-ba799bfc4a4e" class="">③ &quot;회사&quot;는 콘텐츠서비스의 제공에 필요한 경우 정기점검을 실시할 수 있으며, 정기점검시간은 서비스제공화면에 공지한 바에 따릅니다.</p><ul id="f124ab47-4c0f-4331-bdfa-9a2871f80aa3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제21조(콘텐츠서비스의 변경)</strong> </span></li></ul><p id="bee998df-d3c6-4cd6-9895-3ff5f9348274" class="">① &quot;회사&quot;는 상당한 이유가 있는 경우에 운영상, 기술상의 필요에 따라 제공하고 있는 콘텐츠서비스를 변경할 수 있습니다.</p><p id="56211695-0a01-4e9c-9428-b218fd053b96" class="">② &quot;회사&quot;는 콘텐츠서비스의 내용, 이용방법, 이용시간을 변경할 경우에 변경사유, 변경될 콘텐츠서비스의 내용 및 제공일자 등을 그 변경 전 7일 이상 해당 콘텐츠초기화면에 게시합니다.</p><p id="6930bca1-2901-43f9-ae8b-74244c9f783f" class="">③ 제2항의 경우에 변경된 내용이 중대하거나 &quot;이용자&quot;에게 불리한 경우에는 &quot;회사&quot;가 해당 콘텐츠서비스를 제공받는 &quot;이용자&quot;에게<a href="https://www.law.go.kr/LSW//admRulInfoP.do?admRulSeq=69795&amp;chrClsCd=010201#AJAX"> 제11조</a>[&quot;회원&quot;에 대한 통지]에 정한 방법으로 통지하고 동의를 받습니다. 이때, &quot;회사&quot;는 동의를 거절한 &quot;이용자&quot;에 대하여는 변경전 서비스를 제공합니다. 다만, 그러한 서비스 제공이 불가능할 경우 계약을 해지할 수 있습니다.</p><p id="60cd5d85-4a57-44a7-abb9-6096c4b25c82" class="">④ &quot;회사&quot;는 제1항에 의한 서비스의 변경 및 제3항에 의한 계약의 해지로 인하여 &quot;이용자&quot;가 입은 손해를 배상합니다.</p><ul id="925bbeeb-2639-44e1-b4c4-ab4dec445ffc" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제22조(정보의 제공 및 광고의 게재)</strong> </span></li></ul><p id="00c3eaaa-cc4c-4bae-8538-b469a88ea997" class="">① &quot;회사&quot;는 &quot;이용자&quot;가 콘텐츠이용 중 필요하다고 인정되는 다양한 정보를 공지사항이나 전자우편 등의 방법으로 &quot;회원&quot;에게 제공할 수 있습니다. 다만, &quot;회원&quot;은 언제든지 전자우편 등을 통하여 수신 거절을 할 수 있습니다.</p><p id="dc27e0b3-ce2c-423a-a40d-6cc462eed8ae" class="">② 제1항의 정보를 전화 및 모사전송기기에 의하여 전송하려고 하는 경우에는 &quot;회원&quot;의 사전 동의를 받아서 전송합니다.</p><p id="5ac47348-3857-489a-ba71-5193770b9d77" class="">③ &quot;회사&quot;는 &quot;콘텐츠&quot;서비스 제공과 관련하여 콘텐츠화면, 홈페이지, 전자우편 등에 광고를 게재할 수 있습니다. 광고가 게재된 전자우편 등을 수신한 &quot;회원&quot;은 수신거절을 &quot;회사&quot;에게 할 수 있습니다.</p><ul id="c4fac81a-775a-4cae-ba29-2626bbbcc1ca" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제23조(게시물의 삭제)</strong></span></li></ul><p id="5d10e2c1-f396-4f00-bc07-d35d413d89de" class=""> ① &quot;회사&quot;는 게시판에 정보통신망이용촉진 및 정보보호 등에 관한 법률을 위반한 청소년유해매체물이 게시되어 있는 경우에는 이를 지체 없이 삭제 합니다. 다만, 19세 이상의 &quot;이용자&quot;만 이용할 수 있는 게시판은 예외로 합니다.</p><p id="6e143b63-567f-4553-84aa-358919ed9cfe" class="">② &quot;회사&quot;가 운영하는 게시판 등에 게시된 정보로 인하여 법률상 이익이 침해된 자는 &quot;회사&quot;에게 당해 정보의 삭제 또는 반박내용의 게재를 요청할 수 있습니다. 이 경우 &quot;회사&quot;는 지체 없이 필요한 조치를 취하고 이를 즉시 신청인에게 통지합니다.</p><ul id="3c9a8960-0191-450e-8b75-b44ab284f6cd" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제24조(저작권 등의 귀속)</strong> </span></li></ul><p id="6cf9ef99-5254-44d3-83ae-c8f4d3d560ec" class="">① &quot;회사&quot;가 작성한 저작물에 대한 저작권 기타 지적재산권은 &quot;회사&quot;에 귀속합니다.</p><p id="7abdf34a-52e6-444e-8294-9cf49b1680af" class="">② &quot;회사&quot;가 제공하는 서비스 중 제휴계약에 의해 제공되는 저작물에 대한 저작권 기타 지적재산권은 해당 제공업체에 귀속합니다.</p><p id="449dce4f-a24c-4329-99b5-b029d0cde05f" class="">③ &quot;이용자&quot;는 &quot;회사&quot;가 제공하는 서비스를 이용함으로써 얻은 정보 중 &quot;회사&quot; 또는 제공업체에 지적재산권이 귀속된 정보를 &quot;회사&quot; 또는 제공업체의 사전승낙 없이 복제, 전송, 출판, 배포, 방송 기타 방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 하여서는 안 됩니다.</p><p id="90201fcb-7799-45a3-b2de-0f6ea3d6e9d8" class="">④ &quot;회사&quot;는 약정에 따라 &quot;이용자&quot;의 저작물을 사용하는 경우 당해 &quot;이용자&quot;의 허락을 받습니다..</p><ul id="bec8fdbc-9c72-4124-af87-f74d82eff3f5" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제25조(개인정보보호)</strong> </span></li></ul><p id="6d1271f0-3685-4dee-a6cc-8256ce6f7ed4" class="">① &quot;회사&quot;는<a href="https://www.law.go.kr/LSW//admRulInfoP.do?admRulSeq=69795&amp;chrClsCd=010201#AJAX"> 제7조</a> 제2항의 신청서기재사항 이외에 &quot;이용자&quot;의 콘텐츠이용에 필요한 최소한의 정보를 수집할 수 있습니다. 이를 위해 &quot;회사&quot;가 문의한 사항에 관해 &quot;이용자&quot;는 진실한 내용을 성실하게 고지하여야 합니다.</p><p id="4d71bde2-3dd2-4fec-8875-a7eb873d2f46" class="">② &quot;회사&quot;가 &quot;이용자&quot;의 개인 식별이 가능한 &quot;개인정보&quot;를 수집하는 때에는 당해 &quot;이용자&quot;의 동의를 받습니다.</p><p id="5ecb4416-69b5-489f-a759-cb5ea9584afd" class="">③ &quot;회사&quot;는 &quot;이용자&quot;가 이용신청 등에서 제공한 정보와 제1항에 의하여 수집한 정보를 당해 &quot;이용자&quot;의 동의 없이 목적 외로 이용하거나 제3자에게 제공할 수 없으며, 이를 위반한 경우에 모든 책임은 &quot;회사&quot;가 집니다. 다만, 다음의 경우에는 예외로 합니다.</p><p id="0b3ecfc6-5f8d-4df5-b595-b4dfdc3ab81c" class="">1. 통계작성, 학술연구 또는 시장조사를 위하여 필요한 경우로서 특정 개인을 식별할 수 없는 형태로 제공하는 경우</p><p id="99794123-5fbe-488e-97b5-962ca36b2625" class="">2. &quot;콘텐츠&quot; 제공에 따른 요금정산을 위하여 필요한 경우</p><p id="606622e0-456d-4492-b734-b9d9b5ed2df7" class="">3. 도용방지를 위하여 본인확인에 필요한 경우</p><p id="1dd3e11a-4d8d-42dd-9dd8-c70a76122900" class="">4. 약관의 규정 또는 법령에 의하여 필요한 불가피한 사유가 있는 경우</p><p id="62920457-b774-40bc-a5b6-3598a904e813" class="">④ &quot;회사&quot;가 제2항과 제3항에 의해 &quot;이용자&quot;의 동의를 받아야 하는 경우에는 &quot;개인정보&quot;관리책임자의 신원(소속, 성명 및 전화번호 기타 연락처), 정보의 수집목적 및 이용목적, 제3자에 대한 정보제공관련사항(제공받는 자, 제공목적 및 제공할 정보의 내용)등에 관하여 정보통신망이용촉진 및 정보보호 등에 관한 법률 제22조 제2항이 규정한 사항을 명시하고 고지하여야 합니다.</p><p id="c752965b-ded5-4f54-b6aa-224a3f134175" class="">⑤ &quot;이용자&quot;는 언제든지 제3항의 동의를 임의로 철회할 수 있습니다.</p><p id="b3a95cfe-3706-4f4e-a780-1279d722ce78" class="">⑥ &quot;이용자&quot;는 언제든지 &quot;회사&quot;가 가지고 있는 자신의 &quot;개인정보&quot;에 대해 열람 및 오류의 정정을 요구할 수 있으며, &quot;회사&quot;는 이에 대해 지체 없이 필요한 조치를 취할 의무를 집니다. &quot;이용자&quot;가 오류의 정정을 요구한 경우에는 &quot;회사&quot;는 그 오류를 정정할 때까지 당해 &quot;개인정보&quot;를 이용하지 않습니다.</p><p id="03caf036-ac91-462b-8b4d-e666b93800d5" class="">⑦ &quot;회사&quot;는 개인정보보호를 위하여 관리자를 한정하여 그 수를 최소화하며, 신용카드, 은행계좌 등을 포함한 &quot;이용자&quot;의 &quot;개인정보&quot;의 분실, 도난, 유출, 변조 등으로 인한 &quot;이용자&quot;의 손해에 대하여 책임을 집니다.</p><p id="dfc4d95d-33e3-4965-aae8-a150341c0a0c" class="">⑧ &quot;회사&quot; 또는 그로부터 &quot;개인정보&quot;를 제공받은 자는 &quot;이용자&quot;가 동의한 범위 내에서 &quot;개인정보&quot;를 사용할 수 있으며, 목적이 달성된 경우에는 당해 &quot;개인정보&quot;를 지체 없이 파기합니다.</p><p id="7104b904-1479-4dac-9b2b-6a932889a798" class="">⑨ &quot;회사&quot;는 정보통신망이용촉진 및 정보보호에 관한 법률 등 관계 법령이 정하는 바에 따라 &quot;이용자&quot;의 &quot;개인정보&quot;를 보호하기 위해 노력합니다. &quot;개인정보&quot;의 보호 및 사용에 대해서는 관련법령 및 &quot;회사&quot;의 개인정보보호정책이 적용됩니다.</p><p id="2b777332-873c-4e5e-946d-14aaa90d6705" class=""><strong>제4장 콘텐츠이용계약의 청약철회, 계약해제·해지 및 이용제한</strong></p><ul id="5ca3e618-c04d-42d7-a387-6a9e07c71d5c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제26조(&quot;이용자&quot;의 청약철회와 계약해제·해지)</strong> </span></li></ul><p id="a9069ffb-88d0-481c-b8cf-b57ab13e049c" class="">① &quot;회사&quot;와 &quot;콘텐츠&quot;의 이용에 관한 계약을 체결한 &quot;이용자&quot;는 수신확인의 통지를 받은 날로부터 7일 이내에는 청약의 철회를 할 수 있습니다. 다만, &quot;회사&quot;가 다음 각 호중 하나의 조치를 취한 경우에는 &quot;이용자&quot;의 청약철회권이 제한될 수 있습니다.</p><p id="4cf0bb47-548b-445f-9957-2ed604f9ffd2" class="">1. 청약의 철회가 불가능한 &quot;콘텐츠&quot;에 대한 사실을 표시사항에 포함한 경우</p><p id="510616d1-7bd6-4cf8-a154-c915280252e2" class="">2. 시용상품을 제공한 경우</p><p id="c82dfca8-3abe-46d8-8029-e0ad043aedd2" class="">3. 한시적 또는 일부이용 등의 방법을 제공한 경우</p><p id="d7eb0979-a7a9-4dc4-a40b-97e384ef2870" class="">② &quot;이용자&quot;는 다음 각 호의 사유가 있을 때에는 당해 &quot;콘텐츠&quot;를 공급받은 날로부터 3월 이내 또는 그 사실을 안 날 또는 알 수 있었던 날부터 30일 이내에 콘텐츠이용계약을 해제·해지할 수 있습니다.</p><p id="02742cf7-b508-4ecb-a899-efb8cf9043cb" class="">1. 이용계약에서 약정한 &quot;콘텐츠&quot;가 제공되지 않는 경우</p><p id="d355069e-d5bb-4558-9b66-5f30a7748247" class="">2. 제공되는 &quot;콘텐츠&quot;가 표시·광고 등과 상이하거나 현저한 차이가 있는 경우</p><p id="7e02464f-71c4-4cca-8208-e785f04e079f" class="">3. 기타 &quot;콘텐츠&quot;의 결함으로 정상적인 이용이 현저히 불가능한 경우</p><p id="b9e7cf86-e006-4417-a041-efef02a53b39" class="">③ 제1항의 청약철회와 제2항의 계약해제·해지는 &quot;이용자&quot;가 전화, 전자우편 또는 모사전송으로 &quot;회사&quot;에 그 의사를 표시한 때에 효력이 발생합니다.</p><p id="d08f6c78-0224-4487-82ae-9fe2d09f95bf" class="">④ &quot;회사&quot;는 제3항에 따라 &quot;이용자&quot;가 표시한 청약철회 또는 계약해제·해지의 의사표시를 수신한 후 지체 없이 이러한 사실을 &quot;이용자&quot;에게 회신합니다.</p><p id="048d6d88-225e-463f-9b66-6d9ce2bf475f" class="">⑤ &quot;이용자&quot;는 제2항의 사유로 계약해제·해지의 의사표시를 하기 전에 상당한 기간을 정하여 완전한 &quot;콘텐츠&quot; 혹은 서비스이용의 하자에 대한 치유를 요구할 수 있습니다.</p><ul id="259ddfbe-d477-4649-bbbf-dfe2a2e89d2f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제27조(&quot;이용자&quot;의 청약철회와 계약해제·해지의 효과)</strong> </span></li></ul><p id="1c955ecd-ae9c-485d-be78-e11b1f1abd89" class="">① &quot;회사&quot;는 &quot;이용자&quot;가 청약철회의 의사표시를 한 날로부터 또는 &quot;이용자&quot;에게 계약해제·해지의 의사표시에 대하여 회신한 날로부터 3영업일 이내에 대금의 결제와 동일한 방법으로 이를 환급하여야 하며, 동일한 방법으로 환불이 불가능할 때에는 이를 사전에 고지하여야 합니다. 이 경우 &quot;회사&quot;가 &quot;이용자&quot;에게 환급을 지연한 때에는 그 지연기간에 대하여 공정거래위원회가 정하여 고시하는 지연이자율을 곱하여 산정한 지연이자를 지급합니다.</p><p id="8bdbe2eb-2365-4f62-8a63-042b939334fb" class="">② &quot;회사&quot;가 제1항에 따라 환급할 경우에 &quot;이용자&quot;가 서비스이용으로부터 얻은 이익에 해당하는 금액을 공제하고 환급할 수 있습니다.</p><p id="2f06f8f9-cdc3-4e98-94f1-a8e31b5a2a56" class="">③ &quot;회사&quot;는 위 대금을 환급함에 있어서 &quot;이용자&quot;가 신용카드 또는 전자화폐 등의 결제수단으로 재화 등의 대금을 지급한 때에는 지체 없이 당해 결제수단을 제공한 사업자로 하여금 재화 등의 대금의 청구를 정지 또는 취소하도록 요청합니다. 다만, 제2항의 금액공제가 필요한 경우에는 그러하지 아니할 수 있습니다.</p><p id="dd855d2e-40c8-46eb-b0cf-ebb6548d3d56" class="">④ &quot;회사&quot;, &quot;콘텐츠 등의 대금을 지급 받은 자&quot; 또는 &quot;이용자와 콘텐츠이용계약을 체결한 자&quot;가 동일인이 아닌 경우에 각자는 청약철회 또는 계약해제·해지로 인한 대금환급과 관련한 의무의 이행에 있어서 연대하여 책임을 집니다.</p><p id="94126d3d-f293-4a3e-9327-f935d6ebe821" class="">⑤ &quot;회사&quot;는 &quot;이용자&quot;에게 청약철회를 이유로 위약금 또는 손해배상을 청구하지 않습니다. 그러나 &quot;이용자&quot;의 계약해제·해지는 손해배상의 청구에 영향을 미치지 않습니다.</p><ul id="439587f9-4f83-42ce-b846-6bfefe755776" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제28조(회사의 계약해제·해지 및 이용제한)</strong> </span></li></ul><p id="78ceaa9c-f882-4d98-9c94-451f741f3e6b" class="">① &quot;회사&quot;는 &quot;이용자&quot;가<a href="https://www.law.go.kr/LSW//admRulInfoP.do?admRulSeq=69795&amp;chrClsCd=010201#AJAX"> 제12조</a> 제2항에서 정한 행위를 하였을 경우 사전통지 없이 계약을 해제·해지하거나 또는 기간을 정하여 서비스이용을 제한할 수 있습니다.</p><p id="953ce71d-fffc-465b-aba2-e22ed1e31e5e" class="">② 제1항의 해제·해지는 &quot;회사&quot;가 자신이 정한 통지방법에 따라 &quot;이용자&quot;에게 그 의사를 표시한 때에 효력이 발생합니다.</p><p id="90ffac01-73db-445b-949c-08a6ca5ba497" class="">③ &quot;회사&quot;의 해제·해지 및 이용제한에 대하여 &quot;이용자&quot;는 &quot;회사&quot;가 정한 절차에 따라 이의신청을 할 수 있습니다. 이 때 이의가 정당하다고 &quot;회사&quot;가 인정하는 경우, &quot;회사&quot;는 즉시 서비스의 이용을 재개합니다.</p><ul id="f6db178c-ffb6-4988-8fd2-140a0f5c7d70" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제29조(회사의 계약해제·해지의 효과)</strong></span></li></ul><p id="d2ced6ab-10ce-4024-b138-f5dbb7879616" class=""> &quot;이용자&quot;의 귀책사유에 따른 이용계약의 해제·해지의 효과는<a href="https://www.law.go.kr/LSW//admRulInfoP.do?admRulSeq=69795&amp;chrClsCd=010201#AJAX"> 제27조</a>를 준용합니다. 다만, &quot;회사&quot;는 &quot;이용자&quot;에 대하여 계약해제·해지의 의사표시를 한 날로부터 7영업일 이내에 대금의 결제와 동일한 방법으로 이를 환급합니다.</p><p id="746c9cc0-023a-413d-9d08-7a3c3b89f968" class=""><strong>제5장 과오금, 피해보상 등</strong></p><ul id="b1625ffd-9d60-4a06-a402-0e72325b3011" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제30조(면책조항)</strong> </span></li></ul><p id="648e7c4b-8c65-4866-bd6b-d98ecfb8094a" class="">① &quot;회사&quot;는 천재지변 또는 이에 준하는 불가항력으로 인하여 &quot;콘텐츠&quot;를 제공할 수 없는 경우에는 &quot;콘텐츠&quot; 제공에 관한 책임이 면제됩니다.</p><p id="767f8781-5deb-457f-8feb-5c943fb06a78" class="">② &quot;회사&quot;는 &quot;이용자&quot;의 귀책사유로 인한 콘텐츠이용의 장애에 대하여는 책임을 지지 않습니다.</p><p id="ca2a412c-ac2e-4441-ab98-71de494c2f71" class="">③ &quot;회사&quot;는 &quot;회원&quot;이 &quot;콘텐츠&quot;와 관련하여 게재한 정보, 자료, 사실의 신뢰도, 정확성 등의 내용에 관하여는 책임을 지지 않습니다.</p><p id="ddc5902a-06c1-4c3b-aecc-274e299be0bc" class="">④ &quot;회사&quot;는 &quot;이용자&quot; 상호간 또는 &quot;이용자&quot;와 제3자 간에 &quot;콘텐츠&quot;를 매개로 하여 발생한 분쟁 등에 대하여 책임을 지지 않습니다.</p><ul id="23a340b1-d16c-4567-a485-7f5ac73b041b" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>제31조(분쟁의 해결)</strong> </span></li></ul><p id="121dcbae-163a-46f4-9389-a6fc83679ef2" class="">&quot;회사&quot;는 분쟁이 발생하였을 경우에 &quot;이용자&quot;가 제기하는 정당한 의견이나 불만을 반영하여 적절하고 신속한 조치를 취합니다. 다만, 신속한 처리가 곤란한 경우에 &quot;회사&quot;는 &quot;이용자&quot;에게 그 사유와 처리일정을 통보합니다.</p><p id="ffecedcb-2d24-4800-a28b-9152fb817736" class="">
+</p></div></article></body></html>

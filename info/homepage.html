@@ -1,0 +1,641 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>letshadow</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5c4d7a57-2869-4127-b095-53a0a6258b84" class="page sans"><header><h1 class="page-title">letshadow</h1></header><div class="page-body"><h3 id="51bef608-3a4a-4795-84e8-6b46e525c08e" class="">유튜브 영상으로 쉐도잉을 쉽게!🔥</h3><p id="12405f5a-b54a-455a-9a5f-9535dc164e3d" class=""><mark class="highlight-gray">유튜브 영상을 보면서 &quot;내가 좋아하는 것을 영어로 잘 말하고 싶다&quot;라고 생각한 적이 있나요?</mark></p><p id="eb341241-0808-45d6-bfe5-19179ed81c00" class=""><mark class="highlight-gray">쉐도잉을 해야 영어가 는다고 하는데 좋을 방법을 고민하고 있지는 않으신가요?</mark></p><p id="b4cc92d4-f02e-46ae-afc0-40454df550d7" class=""><mark class="highlight-gray">유튜브 영상으로 쉐도잉을 하고 싶은데 구간반복도 안되고 단어도 찾을 수 없다면?</mark></p><p id="f1afb46d-e9f2-4f96-8c14-e120ac774a18" class=""><mark class="highlight-purple"><strong>letshadow</strong></mark><mark class="highlight-gray">가 도와드리겠습니다!</mark>😄 🎉 🥳</p><p id="9b505447-53e9-4c92-b2bc-3dc1fbc9cccb" class="">
+</p><p id="89901338-5441-4cd6-ae24-df6031ab11c4" class="">👉  <strong><a href="http://www.letshadow.net">쉐도잉하러 바로가기</a></strong><strong>! </strong></p><p id="fda06578-442d-4d06-8b35-81575fe2805a" class="">
+</p><p id="fb809a71-a6bd-408b-8e29-85e799a9d7df" class=""><mark class="highlight-purple"><strong>letshadow</strong></mark>는 사용자들의 효율적인 영어학습을 위해 아래와 같은 서비스를 제공하고 있습니다</p><p id="fa764043-865a-4264-a1f0-886d313fe786" class="">
+</p><blockquote id="43ebd0d3-366e-4f0d-961b-4fcbc3a2dd13" class=""><strong>1. 유튜브 동영상 구간 반복</strong></blockquote><div id="3063f6e7-4854-4967-aa56-bdcd72c2aa82" class="column-list"><div id="03627da1-c579-441e-b19f-e306d8d539a1" style="width:50%" class="column"><figure id="fb62b80e-5ea4-48f0-851b-250af3153fe3" class="image"><a href="letshadow%20fb62b80e5ea448f0851b250af3153fe3/Untitled.png"><img style="width:1920px" src="letshadow%20fb62b80e5ea448f0851b250af3153fe3/Untitled.png"/></a></figure></div><div id="c35ee4b7-54c4-485a-a0e2-6cec78d3aa22" style="width:50%" class="column"><p id="1ad64a4d-796e-461e-84f4-4838fcc04825" class=""><strong>유튜브의 동영상 구간 반복을 제공합니다</strong></p><p id="d29ccb6d-0ff1-4500-b92c-9a1233a0da07" class=""><mark class="highlight-gray">유튜브에서는 전체반복만 제공을 하여 원하는 구간을 반복할 수가 없습니다. 간단한 조작으로도 모바일, 웹에서 편리하게 구간반복을 할 수 있습니다</mark></p><p id="c160c90b-13ba-4a2f-84f0-826da0e9da43" class=""><strong>버튼 하나로 간편한 구간반복 설정이 가능합니다</strong></p><p id="89ab965d-9563-4ebb-bfd9-1e258af6f9a9" class=""><mark class="highlight-gray">첫번째 클릭!</mark><mark class="highlight-gray"><strong> </strong></mark><mark class="highlight-gray">→ &quot;시작 시점&quot; 선택</mark></p><p id="08f26bb5-2674-4eae-9785-8eb36b11b2ec" class=""><mark class="highlight-gray">두번째 클릭! → &quot;종료 시간&quot; 선택 → 구간반복!</mark></p><p id="e557e45e-27cc-4514-b54b-f61e66c14d92" class=""><mark class="highlight-gray">세번째 클릭! → 구간반복 종료</mark></p><p id="7c5400a1-3878-4a8a-b466-707d6c5e3bbb" class="">
+</p></div></div><hr id="0b0c1c8c-38f5-4551-a197-5adfa996df66"/><p id="06473f6d-c219-4022-aa2b-500543a4120b" class="">
+</p><blockquote id="4be4d22b-3a62-4e69-a188-a8f540d13b8d" class=""><strong>2. 자막 제공 및 단어 검색</strong></blockquote><div id="882bd939-11a2-4196-a905-42cad66f1e53" class="column-list"><div id="fa471f63-e236-4340-b83a-a824d769ad17" style="width:50%" class="column"><p id="54637396-8b90-4fd2-8234-85b99e3e9f31" class=""><strong>반복 중이라도 끊김없는 자막을 제공합니다</strong></p><p id="0caae436-7c01-4d9b-a780-8e14467ab34a" class=""><mark class="highlight-gray">유튜브 영상에 자막이 있다면 언제 어디서나 자막을 읽을 수 있습니다. 구간 반복 중에서도 끊기지 않고 자막을 제공하여 막힘없는 쉐도잉을 가능하게 합니다</mark></p><p id="63f59b64-43f5-4bc5-94d3-3937d9ee9f8b" class=""><strong>단순 클릭으로 번역된 단어를 제공합니다</strong></p><p id="b0155946-def5-4c16-85fa-56734c308bfa" class=""><mark class="highlight-gray">클릭한번으로 자막이 가르키는 영어 단어 뜻을 한글로 번역하여 제공합니다</mark></p><p id="fb5f1d33-d7a0-4cf7-a2f0-f86ea1048cae" class="">
+</p></div><div id="1644774d-aea0-47a0-9c89-6079386ba60a" style="width:50%" class="column"><figure id="425adc28-8e4b-4276-94ac-7b3389102f9b" class="image"><a href="letshadow%20fb62b80e5ea448f0851b250af3153fe3/Untitled%201.png"><img style="width:1914px" src="letshadow%20fb62b80e5ea448f0851b250af3153fe3/Untitled%201.png"/></a></figure><p id="d9190e41-91ab-4f5b-8cbb-5d63987fca51" class="">
+</p></div></div><hr id="7c194dd9-a9c6-479d-9a26-d64e778d87ff"/><p id="d282479f-5ab3-4ee6-bdea-81c40d5cd908" class="">
+</p><blockquote id="a35741a0-cf09-4c5c-a1f0-28148fefe5a2" class=""><strong>3. 좋아요한 비디오로 정리</strong></blockquote><div id="e1a71e2c-2ec1-4762-b2ee-30e8822a449d" class="column-list"><div id="3d493dd3-b970-42e3-bbe5-13f0daadafbb" style="width:50%" class="column"><figure id="7e580681-9938-46c1-a8c9-2467dd68b216" class="image"><a href="letshadow%20fb62b80e5ea448f0851b250af3153fe3/Untitled%202.png"><img style="width:1920px" src="letshadow%20fb62b80e5ea448f0851b250af3153fe3/Untitled%202.png"/></a></figure></div><div id="8cac9cf9-2e54-4a5b-b60e-4233c5428992" style="width:50%" class="column"><p id="a6557b9f-2c90-4820-bd44-6c8beb0c11e1" class=""><strong>좋아요한 동영상을 목록으로 제공합니다</strong></p><p id="68a85b6f-add5-45c1-9414-51d24883222e" class=""><mark class="highlight-gray">평소에 영상을 보면서 &quot;나중에 쉐도잉 해야지&quot; 라고 생각했던 동영상이 있다면 좋아요 클릭 한번으로 간편하게 화면에 보여줍니다</mark></p><p id="c8f8cbad-547f-43ba-87bb-ad83f1610d7e" class=""><mark class="highlight-gray">본인만의 쉐도잉 리스트를 만들고, 영어학습을 시작해보세요</mark></p><p id="5fcd793b-1e27-4a83-816b-ebf7c8865291" class="">
+</p><p id="246af428-ffcd-4629-966c-8679f46c90d4" class="">
+</p></div></div><hr id="dfbf047e-2172-4a3b-b30f-4d8a564f9217"/><p id="c1f849e6-4f7c-4ba6-8d2d-b708b7ba1417" class="">
+</p><p id="95ebf7dd-2b54-46d1-8ae8-3019210586c4" class="">언어를 학습하는 가장 중요한 방법은 바로 <strong>반복</strong>입니다.</p><p id="69934ccc-ec38-4aa2-8575-fa5f9102aa63" class="">영상을 보고 문장을 들은 후 머리속으로 이미지를 그리고 입으로 말하는 것을 반복하는 것이 매우 중요합니다. 반복된 학습으로 그와 비슷한 상황을 머리속으로 떠올렸을 때, 상황에 매칭이 되는 단어, 문장을 말할 수 있는 것이 저희의 목표입니다. 성공한 사람들의 공통점은 시작을 하고 끝까지 버티는 것입니다. 1~2분의 짧은 영상이라도 쉐도잉을 시작하고 꾸준히 학습한다면 여러분 모두 영어를 자연스럽게 하는 날이 올 것 입니다</p><p id="54fc8f27-9c15-4bfa-ad3c-1e71cb359cc3" class="">여러분들의 영어학습을 <mark class="highlight-purple"><strong>letshadow</strong></mark>가 응원합니다 🤗</p><p id="778dfbec-712c-4701-bf7c-084cf7b05189" class="">
+</p><hr id="25fdb7b4-da68-45d2-847d-f7fc0dad464f"/><p id="284759cc-fd99-429d-8004-3fecccde96ea" class="">개발자 연락처 : admin@letshadow.net</p><p id="8e529ce0-e030-440f-9266-4e0625a03dcc" class="">홈페이지 : www.letshadow.net</p><p id="bfeaccc1-cdfc-4f82-a357-505887e8d48d" class="">
+</p><p id="8b2dfaf8-e977-4818-9c77-5fd125fc31fb" class="">
+</p></div></article></body></html>
