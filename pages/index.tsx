@@ -5,6 +5,6 @@ const Styled = styled.div`
   background: black;
 `;
 
-const index = () => <Styled>hello</Styled>;
+const Index = () => <Styled>hello</Styled>;
 
-export default index;
+export default Index;
