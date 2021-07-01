@@ -63,10 +63,19 @@ new (function () {
         const captionXML = await parser.parseFromString(response, "text/xml");
         const textXML = captionXML.querySelectorAll("text");
 
+        const TEXT_CONTENT_SC = {
+            "&amp;#39;": `'`,
+            "&amp;quot;":`"`
+        }
+
+        const getValidText = (text) => Object
+                .keys(TEXT_CONTENT_SC)
+                .reduce((t, key) => t.replaceAll(key, TEXT_CONTENT_SC[key]) ,text)
+
         this.subtitle = [...textXML].map((t) => ({
             start: new Number(t.getAttribute("start")),
             duration: new Number(t.getAttribute("dur")),
-            text: t.innerHTML,
+            text: getValidText(t.innerHTML),
         }));
 
         this.transcript = new Transcript({
