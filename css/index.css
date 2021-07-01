@@ -108,11 +108,13 @@ body {
     background: #111;
     font-size: 1.5rem;
     left: 20%;
-    width: min-content;
+    /* width: min-content; */
+    display: inline-block;
 }
 
 #video #caption span {
     margin-right: 0.5rem;
+    display: "inline-block";
 }
 
 #video #caption span:hover {
@@ -149,5 +151,10 @@ body {
 
     #video .word {
         left: 10%;
+    }
+
+    #video #caption span {
+        margin-right: 0.4rem;
+        display: inline-block;
     }
 }

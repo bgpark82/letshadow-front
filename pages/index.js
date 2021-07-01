@@ -100,6 +100,10 @@ new (function () {
             return $caption;
         }, this.$caption);
 
+        if(document.body.clientWidth < 500) {
+            this.$caption.style.width = `${document.body.clientWidth - 100}px`;    
+        }
+        
         this.$video.appendChild($subtitle);
     };
 
